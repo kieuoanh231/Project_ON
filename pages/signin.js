@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+
 const Singin = () => {
     return (
         <div>
