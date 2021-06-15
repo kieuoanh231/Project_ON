@@ -1,3 +1,23 @@
+
+
+
+import React,{useEffect} from "react"
+import ReactDOM from "react-dom"
+
+import Test from "./test.js"
+
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <Test />
+//   </React.StrictMode>,
+
+// useEffect(() => {
+//   const rootElement = document.getElementById('slider')
+// }, [])
+//   // rootElement
+// )
+
 const Home = () => {
   return (<div className="abc"> Home </div>)
 }
