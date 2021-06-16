@@ -1,16 +1,40 @@
-import React from "react"
-import { useKeenSlider } from "keen-slider/react"
-
+import React from "react";
+import { useKeenSlider } from "keen-slider/react";
 
 export default (props) => {
-  const [currentSlide, setCurrentSlide] = React.useState(0)
+  const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [pause, setPause] = React.useState(false);
+  const timer = React.useRef();
   const [sliderRef, slider] = useKeenSlider({
-    initial: 0,
-    slideChanged(s) {
-      setCurrentSlide(s.details().relativeSlide)
+    loop: true,
+    duration: 1000,
+    dragStart: () => {
+      setPause(true);
     },
-  })
+    dragEnd: () => {
+      setPause(false);
+    },
+  });
 
+  React.useEffect(() => {
+    sliderRef.current.addEventListener("mouseover", () => {
+      setPause(true);
+    });
+    sliderRef.current.addEventListener("mouseout", () => {
+      setPause(false);
+    });
+  }, [sliderRef]);
+
+  React.useEffect(() => {
+    timer.current = setInterval(() => {
+      if (!pause && slider) {
+        slider.next();
+      }
+    }, 2000);
+    return () => {
+      clearInterval(timer.current);
+    };
+  }, [pause, slider]);
   return (
     <>
       <div className="navigation-wrapper">
@@ -42,20 +66,20 @@ export default (props) => {
               <button
                 key={idx}
                 onClick={() => {
-                  slider.moveToSlideRelative(idx)
+                  slider.moveToSlideRelative(idx);
                 }}
                 className={"dot" + (currentSlide === idx ? " active" : "")}
               />
-            )
+            );
           })}
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
 function ArrowLeft(props) {
-  const disabeld = props.disabled ? " arrow--disabled" : ""
+  const disabeld = props.disabled ? " arrow--disabled" : "";
   return (
     <svg
       onClick={props.onClick}
@@ -65,11 +89,11 @@ function ArrowLeft(props) {
     >
       <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
     </svg>
-  )
+  );
 }
 
 function ArrowRight(props) {
-  const disabeld = props.disabled ? " arrow--disabled" : ""
+  const disabeld = props.disabled ? " arrow--disabled" : "";
   return (
     <svg
       onClick={props.onClick}
@@ -79,5 +103,5 @@ function ArrowRight(props) {
     >
       <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
     </svg>
-  )
+  );
 }

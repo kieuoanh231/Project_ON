@@ -6,6 +6,13 @@ import ReactDOM from "react-dom"
 
 import Test from "./test.js"
 
+// const rootElement = document.getElementById("root")
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   rootElement
+// )
 
 // ReactDOM.render(
 //   <React.StrictMode>
