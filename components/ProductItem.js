@@ -45,19 +45,19 @@ const Product = () => {
                         </h4>
                         <p className="price">$1,202.00</p>
                         <div className="rating">
-                          <span className="fa fa-stack">
+                          <span className="fa fa-stack" aria-hidden="true">
                             <i className="fas fa-star" aria-hidden="true"></i>
                           </span>
-                          <span className="fa fa-stack">
+                          <span className="fa fa-stack" aria-hidden="true">
                             <i className="fas fa-star" aria-hidden="true"></i>
                           </span>
-                          <span className="fa fa-stack">
+                          <span className="fa fa-stack" aria-hidden="true">
                             <i className="fas fa-star" aria-hidden="true"></i>
                           </span>
-                          <span className="fa fa-stack">
+                          <span className="fa fa-stack" aria-hidden="true">
                             <i className="fas fa-star" aria-hidden="true"></i>
                           </span>
-                          <span className="fa fa-stack">
+                          <span className="fa fa-stack" aria-hidden="true">
                             <i className="fas fa-star" aria-hidden="true"></i>
                           </span>
                         </div>
