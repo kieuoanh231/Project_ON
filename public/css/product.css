@@ -328,3 +328,7 @@ span.fa-stack{
     background: #222222;
     float: right;
 }
+.load-more{
+    display: flex;
+    justify-content: center;
+}
