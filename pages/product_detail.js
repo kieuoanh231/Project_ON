@@ -380,7 +380,7 @@ const Detail = () => {
                   class="box-product  product-carousel  clearfix"
                   data-items="4"
                 >
-                   <Product />
+                   {/* <Product /> */}
                 </div>
               </div>
             </div>
