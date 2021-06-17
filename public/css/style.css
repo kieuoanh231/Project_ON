@@ -235,5 +235,19 @@ header {
 
 .navbar {
   margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.navbar-expand-sm .navbar-nav .nav-link{
+  padding: 10px 17px;
+}
+
+.header-center{
+  margin-right: 30px;
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 

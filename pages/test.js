@@ -46,7 +46,42 @@ export default (props) => {
     <>
       <div className="navigation-wrapper">
         <div ref={sliderRef} className="keen-slider">
-          <div className="keen-slider__slide number-slide1">
+        <div class="image-additional keen-slider__slide number-slide1">
+                      <a href="#">
+                        <img
+                          src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
+                          title="Zip-Front Jacket"
+                          alt="Zip-Front Jacket"
+                          width="80"
+                          height="80"
+                        />
+                      </a>
+                    </div>
+                    <div class="image-additional keen-slider__slide number-slide1">
+                      <a href="#">
+                        <img
+                          src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/1-750x750.jpg"
+                          title="Zip-Front Jacket"
+                          alt="Zip-Front Jacket"
+                          width="80"
+                          height="80"
+                        />
+                      </a>
+                    </div>
+                    <div class="image-additional keen-slider__slide number-slide1">
+                      <a href="#">
+                        <img
+                          src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/12-750x750.jpg"
+                          title="Zip-Front Jacket"
+                          alt="Zip-Front Jacket"
+                          width="80"
+                          height="80"
+                        />
+                      </a>
+                    </div>
+                    
+         
+          {/* <div className="keen-slider__slide number-slide1">
             <a href="#">
               <img
                 src="/images/mainbanner1-1920x900.jpg"
@@ -64,6 +99,7 @@ export default (props) => {
               />
             </a>
           </div>
+        */}
         </div>
         {slider && (
           <>

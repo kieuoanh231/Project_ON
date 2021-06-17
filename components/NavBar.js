@@ -117,11 +117,11 @@ function NavBar() {
             </script> */}
         <i className="fas fa-times icon-close" aria-hidden="true"></i>
       </div>
+      <hr/>
       <div className="header-bottom">
         <div className="container">
-          <nav className="navbar navbar-expand-sm navbar-light bg-light flex-sm-nowrap flex-wrap">
+          <nav className="navbar navbar-expand-sm">
             <div className="mx-auto container-fluid">
-              <a className="navbar-brand flex-grow-1" href="#"></a>
               <button
                 className="navbar-toggler"
                 type="button"
@@ -134,7 +134,7 @@ function NavBar() {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div
-                className="collapse navbar-collapse flex-grow-1 justify-content-center"
+                className="collapse navbar-collapse justify-content-center"
                 id="navbarNavDropdown"
               >
                 <ul className="navbar-nav mx-auto">
@@ -151,6 +151,11 @@ function NavBar() {
                   <li className="nav-item">
                     <a className="nav-link" href="#">
                       Unisex Jacket
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#">
+                      Blogs
                     </a>
                   </li>
                   <li className="nav-item">

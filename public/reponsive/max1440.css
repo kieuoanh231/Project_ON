@@ -88,3 +88,42 @@
         margin: 0 0 0 10px;
     }
 }
+
+@media (max-width: 1440px) {
+    .related-products-block {
+        padding-top: 50px;
+    }
+    .propage-tab {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 1199px) {
+    #additional-carousel {
+        max-width: 410px;
+    }
+    .rating .product-rating {
+        width: 100%;
+        margin: 0 0 15px 0;
+    }
+    .propage-tab {
+        margin-top: 40px;
+    }
+    .related-products-block {
+        padding-top: 40px;
+    }
+    .right_info h1,
+    .quick-product-right h1 {
+        margin: 0 0 8px;
+        font-size: 18px;
+    }
+    .pro_price {
+        font-size: 20px;
+    }
+    .related-products-block {
+        padding-top: 40px;
+    }
+    .propage-tab {
+        margin-top: 40px;
+    }
+}
