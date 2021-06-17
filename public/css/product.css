@@ -654,3 +654,8 @@ button.pro_comper:hover {
     color: var(--primary-color);
     line-height: 20px;
 }
+
+.load-more{
+    display: flex;
+    justify-content: center;
+}

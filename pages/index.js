@@ -11,13 +11,25 @@ const Home = (props) => {
         <title>Home page</title>
       </Head>
       <Slider />
-      {products.length === 0 ? (
-        <h2>No product</h2>
-      ) : (
-        products.map((product) => (
-          <ProductItem key={product._id} product={product} />
-        ))
-      )}
+      <div className="productList">
+        <div className="container">
+          <div className="page-title toggled">
+            <h3 style={{ marginTop: "20px" }}>Our Products</h3>
+            {products.length === 0 ? (
+              <h2>No product</h2>
+            ) : (
+              products.map((product) => (
+                <ProductItem key={product._id} product={product} />
+              ))
+            )}
+          </div>
+        </div>
+        <div className="load-more">
+          <button type="submit" className="btn btn-primary">
+            Load more
+          </button>
+        </div>
+      </div>
     </>
   );
 };
