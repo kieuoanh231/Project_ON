@@ -1,8 +1,7 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
-import Link from "next/link";
 
-function Slider(props) {
+export default (props) => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [pause, setPause] = React.useState(false);
   const timer = React.useRef();
@@ -14,7 +13,7 @@ function Slider(props) {
     dragStart: () => {
       setPause(true);
     },
-    dragEnd: () => {F
+    dragEnd: () => {
       setPause(false);
     },
     slideChanged(s) {
@@ -48,22 +47,22 @@ function Slider(props) {
       <div className="navigation-wrapper">
         <div ref={sliderRef} className="keen-slider">
           <div className="keen-slider__slide number-slide1">
-            <Link href="#">
+            <a href="#">
               <img
                 src="/images/mainbanner1-1920x900.jpg"
                 alt="Main-banner1"
                 className="img-responsive"
               />
-            </Link>
+            </a>
           </div>
           <div className="keen-slider__slide number-slide2">
-            <Link href="#">
+            <a href="#">
               <img
                 src="/images/mainbanner2-1920x900.jpg"
                 alt="Main-banner2"
                 className="img-responsive"
               />
-            </Link>
+            </a>
           </div>
         </div>
         {slider && (
@@ -89,6 +88,7 @@ function Slider(props) {
                   slider.moveToSlideRelative(idx);
                 }}
                 className={"dot" + (currentSlide === idx ? " active" : "")}
+
               />
             );
           })}
@@ -96,7 +96,7 @@ function Slider(props) {
       )}
     </>
   );
-}
+};
 
 function ArrowLeft(props) {
   const disabeld = props.disabled ? " arrow--disabled" : "";
@@ -125,5 +125,3 @@ function ArrowRight(props) {
     </svg>
   );
 }
-
-export default Slider;
