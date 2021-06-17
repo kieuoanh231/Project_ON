@@ -1,0 +1,122 @@
+/* Footer */
+footer {
+    margin-top: 50px;
+    background: #222222;
+  }
+  
+  .footer-top {
+    padding: 80px 0 0 0;
+    color: #777777;
+  }
+  
+  footer h5,
+  footer h4,
+  .news .title-text {
+    text-transform: uppercase;
+    font-size: 16px;
+    margin: -2px 0 15px;
+    position: relative;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  
+  .news .title-text {
+    margin: -2px 0 21px;
+  }
+  
+  footer .footer-content a {
+    padding: 8px 0;
+    display: block;
+    color: #777777;
+    text-decoration: none;
+  }
+  
+  footer a:hover,
+  footer a:focus {
+    color: #ffffff;
+  }
+  /* footer right */
+  
+  .position-footer-left h5 {
+    margin: -2px 0 21px;
+  }
+  
+  .position-footer-left li>div {
+    display: flex;
+    margin: 8px 0;
+    line-height: 24px;
+  }
+  
+  .position-footer-left li .contact_site a {
+    padding: 0;
+    display: initial;
+    color: #777777;
+    text-decoration: none;
+  }
+  
+  .contact_title {
+    text-transform: capitalize;
+    margin-right: 5px;
+    color: #ffffff;
+  }
+  
+  
+  /* footer bottom*/
+  
+  .footer_bottom {
+    border-top: 1px solid #333333;
+  }
+  
+  footer .footer_bottom p {
+    padding: 10px;
+    text-align: center;
+    color: #777777;
+  }
+  
+  footer .footer_bottom p a {
+    text-decoration: none;
+  }
+  
+  /* newsletter block */
+  
+  .subscribe-form {
+    position: relative;
+    display: flex;
+    padding: 5px;
+    background: #1c1c1c;
+    width: 100%;
+  }
+  
+  .title-text {
+    font-size: 24px;
+    font-weight: 500;
+    color: #ffffff;
+    text-transform: capitalize;
+  }
+  
+  .subscribe-form #newsletter_usr_email {
+    padding: 5px 0;
+    border: none;
+    background: transparent;
+    color: #ffffff;
+  }
+  
+  .subscribe-form #newsletter_usr_email::placeholder {
+    color: #777777;
+  }
+  
+  .subscribe-btn {
+    border: 2px solid #222222;
+    background: #222222;
+    padding: 8px 30px;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  
+  
+  .news-description {
+    line-height: 24px;
+    margin-bottom: 23px;
+  }

@@ -30,7 +30,7 @@ function NavBar() {
 
                     <div class="header-center">
                         <div id="logo">
-                            <a href="/"><img src="/logo.png" title="Your Store" alt="Your Store" class="img-responsive" /></a>
+                            <a href="/"><img src="/images/logo.png" title="Your Store" alt="Your Store" class="img-responsive" /></a>
                         </div>
                     </div>
 
@@ -134,12 +134,15 @@ function NavBar() {
                                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                                     </li>
                                     <li class="nav-item mx-1">
-                                        <a class="nav-link" href="#">Features</a>
+                                        <a class="nav-link" href="#">Jacket</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Pricing</a>
+                                        <a class="nav-link" href="#">Unisex Jacket</a>
                                     </li>
-                                    <li class="nav-item dropdown mx-1">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Blogs</a>
+                                    </li>
+                                    {/* <li class="nav-item dropdown mx-1">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Dropdown link
                                         </a>
@@ -148,75 +151,11 @@ function NavBar() {
                                             <li><a class="dropdown-item" href="#">Another action</a></li>
                                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                                         </ul>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </div>
                         </div>
                     </nav>
-                    {/* <nav id="menu" class="navbar navbar_menu">
-                        <div class="navbar-header">
-                            <button type="button" class="btn btn-navbar navbar-toggle" id="btnMenuBar"><span class="addcart-icon"></span></button>
-                        </div>
-                        <div id="topCategoryList" class="main-menu menu-navbar clearfix" data-more="More">
-                            <div class="menu-close hidden-lg hidden-md"><span id="category" class="">Menu</span><i class="icon-close"></i></div>
-                            <ul class="nav navbar-nav">
-                                <li class="menulist"><a href="#">Windcheater Jacket</a></li>
-                                <li class="dropdown menulist">
-                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Kids Jacket</a>
-                                    <div class="dropdown-menu navcol-menu column-1 ">
-                                        <div class="dropdown-inner">
-                                            <ul class="list-unstyled childs_1">
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Autumn Jacket</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Coats Jacket</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Cotton Blend </a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Floral Print</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Formal Jacket</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Printed Jacket</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Sleeve Striped</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Slim Jackets</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Solid Denim</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Watch strap</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Windbreaker Jacket</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Winter Jacket</a>
-                                                </li>
-                                                <li class="">
-                                                    <a href="#" class="dropdown-toggle" aria-expanded="false">Red Jacket</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="menulist"><a href="#path=52">Unisex Jacket</a></li>
-
-                                <li class="blog"><a href="#">Blogs</a></li>
-
-                            </ul>
-                        </div>
-                    </nav> */}
-
 
                 </div>
             </div>

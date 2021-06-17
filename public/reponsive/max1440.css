@@ -1,0 +1,90 @@
+@media only screen and (max-width: 1440px) {
+    .header-top {
+        padding: 20px 0;
+    }
+    #logo img {
+        max-width: 150px;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    #logo img {
+        width: 120px;
+    }
+    .header-top {
+        padding: 15px 0;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+    .banner3 .inner2 .promo-title {
+        font-size: 40px;
+        line-height: 50px;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .banner3 .inner2 .promo-title {
+        font-size: 28px;
+        line-height: 40px;
+        margin: 0 0 20px;
+    }
+    .inner2 .promo-desc {
+        font-size: 20px;
+        margin-bottom: 17px;
+    }
+    .inner2 {
+        left: 30px;
+        bottom: 30px;
+    }
+}
+@media (max-width: 1440px) {
+    .page-title h3 {
+        text-align: center;
+        font-size: 24px;
+    }
+}
+@media only screen and (max-width: 1440px) {
+    .title-text {
+        font-size: 18px;
+    }
+    .subscribe-form {
+        display: block;
+        background: transparent;
+    }
+    .subscribe-btn {
+        border-color: #1c1c1c;
+        margin-top: 15px;
+    }
+    .subscribe-form i {
+        display: none;
+    }
+    .subscribe-form #newsletter_usr_email {
+        padding: 5px 10px;
+        background: #1c1c1c;
+    }
+}
+
+@media (max-width: 1800px) {
+    .footer-top>div+div {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .footer-top .col-sm-3>div {
+        margin-bottom: 20px;
+    }
+    .footer-top {
+        padding: 50px 0 0 0;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .payment-link img {
+        max-width: 150px;
+    }
+    .social-media a+a {
+        margin: 0 0 0 10px;
+    }
+}

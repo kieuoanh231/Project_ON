@@ -4013,17 +4013,8 @@ select.form-control,
     font-size: 8px;
 }
 
-.rating .fa-star-o,
-#tab-review .fa-star-o {
-    color: #c2c2c2;
-}
 
-.rating .fa-star,
-.rating .fa-star+.fa-star-o,
-#tab-review .fa-star+.fa-star-o,
-#tab-review .fa-star {
-    color: #ffb503;
-}
+
 
 @media (min-width: 681px) {
     .product-list .product-thumb .image {
