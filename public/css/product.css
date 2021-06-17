@@ -386,9 +386,9 @@ a.thumbnail {
     float: left;
 }
 
-#additional-carousel .image-additional {
+/* #additional-carousel .image-additional {
     margin: 10px 0;
-}
+} */
 
 #quick-carousel.owl-carousel.owl-theme .owl-nav {
     position: unset;
@@ -643,4 +643,14 @@ button.pro_comper:hover {
 #product-page .tab-content strong {
     font-weight: 500;
     text-transform: capitalize;
+}
+
+.page_title {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+    display: block;
+    font-weight: 500;
+    color: var(--primary-color);
+    line-height: 20px;
 }
