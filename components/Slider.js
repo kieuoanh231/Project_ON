@@ -1,7 +1,7 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 
-export default (props) => {
+const Slider=(props)=>{
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [pause, setPause] = React.useState(false);
   const timer = React.useRef();
@@ -125,3 +125,5 @@ function ArrowRight(props) {
     </svg>
   );
 }
+
+export default Slider

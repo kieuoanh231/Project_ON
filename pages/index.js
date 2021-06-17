@@ -1,5 +1,5 @@
-import Slider from "./slider"
-import Product from "./product"
+import Slider from "../components/Slider"
+import Product from "../components/ProductItem"
 const Home = () => {
     return (
         <>

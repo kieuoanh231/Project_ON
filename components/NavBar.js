@@ -14,12 +14,12 @@ function NavBar() {
     }
     return (
         <header>
-            <div class="container">
-                <div class="header-top">
-                    <div class="header-left hidden-sm hidden-xs">
-                        <div class="contact">
+            <div className="container">
+                <div className="header-top">
+                    <div className="header-left hidden-sm hidden-xs">
+                        <div className="contact">
                             <a>
-                                <i class="fas fa-phone-alt"></i>
+                                <i className="fas fa-phone-alt"></i>
                                 <span>
                                     <span>Customer Support</span>
                                     <span>123-456-7890</span>
@@ -28,24 +28,24 @@ function NavBar() {
                         </div>
                     </div>
 
-                    <div class="header-center">
+                    <div className="header-center">
                         <div id="logo">
-                            <a href="/"><img src="/images/logo.png" title="Your Store" alt="Your Store" class="img-responsive" /></a>
+                            <a href="/"><img src="/images/logo.png" title="Your Store" alt="Your Store" className="img-responsive" /></a>
                         </div>
                     </div>
 
-                    <div class="header-right header-links">
-                        <div class="btn_search">
-                            <a class="search-btn">
-                                <i class="fas fa-search"></i>
+                    <div className="header-right header-links">
+                        <div className="btn_search">
+                            <a className="search-btn">
+                                <i className="fas fa-search"></i>
                             </a>
                         </div>
 
-                        <div id="header_ac" class="dropdown">
+                        <div id="header_ac" className="dropdown">
                             <a href="#" title="My Account" data-toggle="dropdown">
-                                <span class="hidden">My Account</span><i class="fas fa-user"></i>
+                                <span className="hidden">My Account</span><i className="fas fa-user"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-right account-link-toggle">
+                            <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
                                 <li><a href="/signup">Register</a></li>
                                 <li><a href="/signin">Login</a></li>
 
@@ -54,24 +54,24 @@ function NavBar() {
                         </div>
                         <div id="header_cart">
                             <a href="/" title="Cart" data-toggle="dropdown">
-                                <span class="hidden">Cart</span><i class="fas fa-shopping-cart"></i>
+                                <span className="hidden">Cart</span><i className="fas fa-shopping-cart"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-right account-link-toggle">
+                            <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
                                 <li>
-                                    <p class="text-center product-cart-empty">Your shopping cart is empty!</p>
+                                    <p className="text-center product-cart-empty">Your shopping cart is empty!</p>
                                 </li>
                             </ul>
                         </div>
 
-                        {/* <div class="header_cart">
-                            <div id="cart" class="btn-group btn-block">
-                                <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="btn btn-inverse btn-block btn-lg dropdown-toggle">
+                        {/* <div className="header_cart">
+                            <div id="cart" className="btn-group btn-block">
+                                <button type="button" data-toggle="dropdown" data-loading-text="Loading..." className="btn btn-inverse btn-block btn-lg dropdown-toggle">
                                     <span id="cart-totalx"></span>
-                                    <i class="fas fa-shopping-cart"></i>
+                                    <i className="fas fa-shopping-cart"></i>
                                 </button>
-                                <ul class="dropdown-menu header-cart-toggle pull-right ">
+                                <ul className="dropdown-menu header-cart-toggle pull-right ">
                                     <li>
-                                        <p class="text-center product-cart-empty">Your shopping cart is empty!</p>
+                                        <p className="text-center product-cart-empty">Your shopping cart is empty!</p>
                                     </li>
                                 </ul>
                             </div>
@@ -79,17 +79,17 @@ function NavBar() {
                     </div>
                 </div>
             </div>
-            <div class="header-search">
-                <div id="mahardhiSearch" class="input-group mahardhi-search">
-                    <div class="category-search">
-                        <select name="category_id" class="form-control input-lg">
-                            <option value="0">All Categories</option>
-                            <option value="18">Jackets</option>
+            <div className="header-search">
+                <div id="mahardhiSearch" className="input-group mahardhi-search">
+                    <div className="category-search">
+                        <select name="category_id" className="form-control input-lg">
+                            <option defaultValue="0">All Categories</option>
+                            <option defaultValue="18">Jackets</option>
                         </select>
                     </div>
-                    <input type="text" name="search" value="" placeholder="Search here..." class="form-control input-lg ui-autocomplete-input" />
-                    <span class="btn-search input-group-btn">
-                        <button type="button" class="btn btn-default btn-lg"><i class="fas fa-search"></i></button>
+                    <input type="text" name="search" defaultValue="" placeholder="Search here..." className="form-control input-lg ui-autocomplete-input" />
+                    <span className="btn-search input-group-btn">
+                        <button type="button" className="btn btn-default btn-lg"><i className="fas fa-search"></i></button>
                     </span>
                 </div>
 
@@ -97,12 +97,12 @@ function NavBar() {
                 $('#mahardhiSearch .btn-search button').bind('click', function() {
                     url = 'index.php?route=product/search';
 
-                    var search = $('#mahardhiSearch input[name=\'search\']').prop('value');
+                    var search = $('#mahardhiSearch input[name=\'search\']').prop('defaultValue');
                     if (search) {
                         url += '&search=' + encodeURIComponent(search);
                     }
 
-                    var category_id = $('#mahardhiSearch select[name=\'category_id\']').prop('value');
+                    var category_id = $('#mahardhiSearch select[name=\'category_id\']').prop('defaultValue');
                     if (category_id > 0) {
                         url += '&category_id=' + encodeURIComponent(category_id);
                         // url += '&sub_category=true';
@@ -118,38 +118,38 @@ function NavBar() {
                     }
                 });
             </script> */}
-                <i class="fas fa-times icon-close"></i>
+                <i className="fas fa-times icon-close"></i>
             </div>
-            <div class="header-bottom">
-                <div class="container">
-                    <nav class="navbar navbar-expand-sm navbar-light bg-light flex-sm-nowrap flex-wrap">
-                        <div class="mx-auto container-fluid">
-                            <a class="navbar-brand flex-grow-1" href="#"></a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
+            <div className="header-bottom">
+                <div className="container">
+                    <nav className="navbar navbar-expand-sm navbar-light bg-light flex-sm-nowrap flex-wrap">
+                        <div className="mx-auto container-fluid">
+                            <a className="navbar-brand flex-grow-1" href="#"></a>
+                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
                             </button>
-                            <div class="collapse navbar-collapse flex-grow-1 justify-content-center" id="navbarNavDropdown">
-                                <ul class="navbar-nav mx-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <div className="collapse navbar-collapse flex-grow-1 justify-content-center" id="navbarNavDropdown">
+                                <ul className="navbar-nav mx-auto">
+                                    <li className="nav-item">
+                                        <a className="nav-link active" aria-current="page" href="#">Home</a>
                                     </li>
-                                    <li class="nav-item mx-1">
-                                        <a class="nav-link" href="#">Jacket</a>
+                                    <li className="nav-item mx-1">
+                                        <a className="nav-link" href="#">Jacket</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Unisex Jacket</a>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="#">Unisex Jacket</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Blogs</a>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="#">Blogs</a>
                                     </li>
-                                    {/* <li class="nav-item dropdown mx-1">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {/* <li className="nav-item dropdown mx-1">
+                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Dropdown link
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a className="dropdown-item" href="#">Action</a></li>
+                                            <li><a className="dropdown-item" href="#">Another action</a></li>
+                                            <li><a className="dropdown-item" href="#">Something else here</a></li>
                                         </ul>
                                     </li> */}
                                 </ul>
