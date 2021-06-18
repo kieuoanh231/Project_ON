@@ -5,20 +5,12 @@ import { useState } from "react";
 import Head from "next/head";
 const Home = (props) => {
   const [products, setProducts] = useState(props.products);
-
   return (
     <>
       <Head>
         <title>Home page</title>
       </Head>
       <Slider />
-      {/* {products.length === 0 ? (
-        <h2>No product</h2>
-      ) : (
-        products.map((product) => (
-          <ProductItem key={product._id} product={product} />
-        ))
-      )} */}
       <div className="productList">
         <div className="container">
           <div className="page-title toggled">
