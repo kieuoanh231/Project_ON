@@ -11,7 +11,7 @@ export default (props) => {
 
   return (
     <>
-      <div ref={sliderRef} className="keen-slider">
+      <div ref={sliderRef} className="keen-slider height-slider">
         <div class="image-additional keen-slider__slide">
           <a href="#">
             <img
@@ -215,7 +215,7 @@ function ArrowUp(props) {
   return (
     <svg
       onClick={props.onClick}
-      className={"arrow arrow--up" + disabeld}
+      className={"arrows arrow--up" + disabeld}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >
@@ -229,7 +229,7 @@ function ArrowDown(props) {
   return (
     <svg
       onClick={props.onClick}
-      className={"arrow arrow--down" + disabeld}
+      className={"arrows arrow--down" + disabeld}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >

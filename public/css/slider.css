@@ -31,6 +31,17 @@
   width: 20px;
   height: 20px;
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #fff;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.arrows {
+  width: 20px;
+  height: 20px;
+  position: absolute;
   top: 270px;
   /* top: 50%; */
   /* transform: translateY(-50%); */
@@ -67,6 +78,6 @@
   height: auto;
 }
 
-.keen-slider {
+.height-slider{
   height: 270px;
 }
