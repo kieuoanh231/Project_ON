@@ -11,7 +11,7 @@ export default (props) => {
 
   return (
     <>
-      <div ref={sliderRef} className="height-keen-slider keen-slider">
+      <div ref={sliderRef} className="keen-slider height-slider">
         <div class="image-additional keen-slider__slide">
           <a href="#">
             <img

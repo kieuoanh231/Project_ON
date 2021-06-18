@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const Product = ({ product }) => {
   return (
-    <div className="single-column">
-      <div className="product-layout col-xs-3">
+    <div className="single-column col-3">
+      <div className="product-layout">
         <div className="product-thumb transition">
           <div className="image">
             <Link href="#">

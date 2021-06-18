@@ -15,6 +15,7 @@ const Home = (props) => {
         <div className="container">
           <div className="page-title toggled">
             <h3 style={{ marginTop: "20px" }}>Our Products</h3>
+            <div className="row">
             {products.length === 0 ? (
               <h2>No product</h2>
             ) : (
@@ -22,6 +23,7 @@ const Home = (props) => {
                 <ProductItem key={product._id} product={product} />
               ))
             )}
+            </div>
           </div>
         </div>
         <div className="load-more">
