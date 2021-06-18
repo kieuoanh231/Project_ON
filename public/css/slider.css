@@ -3,9 +3,10 @@
 }
 
 .dots {
-  display: flex;
-  padding: 10px 0;
-  justify-content: center;
+ position: absolute;
+ bottom: 0;
+ left: 50%;
+ padding-bottom: 10px;
 }
 
 .dot {
@@ -27,18 +28,18 @@
   background: #000;
 }
 
+
 .arrow {
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 270px;
-  /* top: 50%; */
+  /* top: 270px; */
+  top: 50%;
   /* transform: translateY(-50%); */
   fill: #000;
   cursor: pointer;
   z-index: 1;
 }
-
 .arrow--left {
   left: 5px;
 }
