@@ -24,7 +24,6 @@ function Register() {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
-
   var message=""
 
   const handleSubmit = async (e) => {
