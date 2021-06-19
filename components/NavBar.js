@@ -33,37 +33,37 @@ function NavBar() {
 
           <div className="header-right header-links">
             <div className="btn_search">
-              <a className="search-btn">
+              <span className="search-btn">
                 <i className="fas fa-search" aria-hidden="true"></i>
-              </a>
+              </span>
+            </div>
+            <div id="header_ac" className="dropdown">
+              <span>
+                <Link href="#" title="My Account" data-toggle="dropdown">
+                  <i className="fas fa-user" aria-hidden="true"></i>
+                </Link>
+                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                  <li>
+                    <Link href="/signup">Register</Link>
+                  </li>
+                  <li>
+                    <Link href="/login">Login</Link>
+                  </li>
+                </ul>
+              </span>
             </div>
 
-            <div id="header_ac" className="dropdown">
-              <Link href="#" title="My Account" data-toggle="dropdown">
-                <span className="."> <i className="fas fa-user" aria-hidden="true"></i>
-                </span>
-              </Link>
-              <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                <li>
-                  <Link href="/signup">Register</Link>
-                </li>
-                <li>
-                  <Link href="/signin">Login</Link>
-                </li>
-              </ul>
-            </div>
             <div id="header_cart">
-              <Link href="/" title="Cart" data-toggle="dropdown">
-                <span className="."><i className="fas fa-shopping-cart" aria-hidden="true"></i>
-                </span>
-              </Link>
-              <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                <li>
-                  <p className="text-center product-cart-empty">
-                    Your shopping cart is empty!
-                  </p>
-                </li>
-              </ul>
+              <span>
+                <Link href="/" title="Cart" data-toggle="dropdown">
+                  <i className="fas fa-shopping-cart" aria-hidden="true"></i>
+                </Link>
+                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                  <li className="text-center product-cart-empty">
+                      Your shopping cart is empty!
+                  </li>
+                </ul>
+              </span>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ function NavBar() {
             </script> */}
         <i className="fas fa-times icon-close" aria-hidden="true"></i>
       </div>
-      <hr/>
+      <hr />
       <div className="header-bottom">
         <div className="container">
           <nav className="navbar navbar-expand-sm">
@@ -169,7 +169,6 @@ function NavBar() {
           </nav>
         </div>
       </div>
-    
     </header>
   );
 }
