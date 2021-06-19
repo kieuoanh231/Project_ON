@@ -3,7 +3,7 @@ import { useKeenSlider } from "keen-slider/react";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
-function Slider(props) {
+function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pause, setPause] = useState(false);
   const timer = React.useRef();

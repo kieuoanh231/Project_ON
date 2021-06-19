@@ -12,7 +12,7 @@ export default (props) => {
   return (
     <>
       <div ref={sliderRef} className="keen-slider">
-        <div class="image-additional keen-slider__slide">
+        <div className="image-additional keen-slider__slide">
           <a href="#">
             <img
               src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
@@ -23,7 +23,7 @@ export default (props) => {
             />
           </a>
         </div>
-        <div class="image-additional keen-slider__slide">
+        <div className="image-additional keen-slider__slide">
           <a href="#">
             <img
               src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
@@ -34,7 +34,7 @@ export default (props) => {
             />
           </a>
         </div>
-        <div class="image-additional keen-slider__slide">
+        <div className="image-additional keen-slider__slide">
           <a href="#">
             <img
               src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
@@ -45,7 +45,7 @@ export default (props) => {
             />
           </a>
         </div>
-        <div class="image-additional keen-slider__slide">
+        <div className="image-additional keen-slider__slide">
           <a href="#">
             <img
               src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
@@ -116,15 +116,15 @@ export default (props) => {
 
 //   return (
 //     <>
-//       <div class="product-additional">
+//       <div className="product-additional">
 //         <div
 //           ref={sliderRef}
 //           id="additional-carousel"
-//           class="slick-carousel clearfix"
+//           className="slick-carousel clearfix"
 //         >
 //           {/* <div className="navigation-wrapper">
 //         <div ref={sliderRef} className="keen-slider"> */}
-//           <div class="image-additional keen-slider__slide">
+//           <div className="image-additional keen-slider__slide">
 //             <a href="#">
 //               <img
 //                 src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
@@ -135,7 +135,7 @@ export default (props) => {
 //               />
 //             </a>
 //           </div>
-//           <div class="image-additional keen-slider__slide">
+//           <div className="image-additional keen-slider__slide">
 //             <a href="#">
 //               <img
 //                 src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/1-750x750.jpg"
@@ -146,7 +146,7 @@ export default (props) => {
 //               />
 //             </a>
 //           </div>
-//           <div class="image-additional keen-slider__slide">
+//           <div className="image-additional keen-slider__slide">
 //             <a href="#">
 //               <img
 //                 src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/12-750x750.jpg"
