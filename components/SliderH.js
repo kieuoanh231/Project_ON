@@ -5,10 +5,9 @@ import { useState } from "react";
 
 export const SliderH = (props) => {
   const [images] = useState(props.images);
-  console.log(images)
 
   const [sliderRef, slider] = useKeenSlider({
-    spacing: 0,
+    spacing: 10,
     slidesPerView: 2,
     vertical: true,
   });
