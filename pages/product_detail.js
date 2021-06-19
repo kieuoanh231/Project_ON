@@ -1,4 +1,4 @@
-import Carousel from "./test"
+import Carousel from "../components/SliderVertical"
 import Product from "../components/ProductItem";
 const Detail = () => {
   return (

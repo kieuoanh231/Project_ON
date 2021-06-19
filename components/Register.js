@@ -1,4 +1,54 @@
+import Head from "next/head";
+import Link from "next/link";
+import { useState } from "react";
+import valid from "../utils/valid";
+import { postData } from "../utils/fetchData";
+
 function Register() {
+  const initialState = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    cf_password: "",
+    phone: "",
+    address: "",
+  };
+  // console.log(initialState);
+
+  const [userData, setUserData] = useState(initialState);
+  const { firstname, lastname, email, password, cf_password, phone, address } =
+    userData;
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
+
+  var message=""
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const err = valid(
+      firstname,
+      lastname,
+      email,
+      password,
+      cf_password,
+      phone,
+      address
+    );
+    // if (err) {
+    //   message=err
+    //   console.log(err);
+    // }
+
+    const res = await postData("auth/signup", userData);
+    message=res.err
+    console.log(message);
+    
+    // console.log("success")
+  };
   return (
     <>
       <div id="content" class="col-sm-9">
@@ -11,10 +61,11 @@ function Register() {
           .
         </p>
         <form
-          action="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register"
+          action="/register"
           method="post"
           enctype="multipart/form-data"
           class="form-horizontal"
+          onSubmit={handleSubmit}
         >
           <fieldset id="account">
             <legend>Your Personal Details</legend>
@@ -26,10 +77,11 @@ function Register() {
                 <input
                   type="text"
                   name="firstname"
-                  value=""
                   placeholder="First Name"
                   id="input-firstname"
                   class="form-control"
+                  value={firstname}
+                  onChange={handleChangeInput}
                 />
               </div>
             </div>
@@ -41,10 +93,11 @@ function Register() {
                 <input
                   type="text"
                   name="lastname"
-                  value=""
                   placeholder="Last Name"
                   id="input-lastname"
                   class="form-control"
+                  value={lastname}
+                  onChange={handleChangeInput}
                 />
               </div>
             </div>
@@ -56,10 +109,11 @@ function Register() {
                 <input
                   type="email"
                   name="email"
-                  value=""
                   placeholder="E-Mail"
                   id="input-email"
                   class="form-control"
+                  value={email}
+                  onChange={handleChangeInput}
                 />
               </div>
             </div>
@@ -70,15 +124,31 @@ function Register() {
               <div class="col-sm-10">
                 <input
                   type="tel"
-                  name="telephone"
-                  value=""
-                  placeholder="Telephone"
+                  name="phone"
+                  placeholder="Numberphone"
                   id="input-telephone"
                   class="form-control"
+                  value={phone}
+                  onChange={handleChangeInput}
                 />
               </div>
             </div>
-          
+            <div class="form-group required">
+              <label class="col-sm-2 control-label" for="input-address">
+                Address
+              </label>
+              <div class="col-sm-10">
+                <input
+                  type="tel"
+                  name="address"
+                  placeholder="Address"
+                  id="input-address"
+                  class="form-control"
+                  value={address}
+                  onChange={handleChangeInput}
+                />
+              </div>
+            </div>
           </fieldset>
           <fieldset>
             <legend>Your Password</legend>
@@ -90,10 +160,11 @@ function Register() {
                 <input
                   type="password"
                   name="password"
-                  value=""
                   placeholder="Password"
                   id="input-password"
                   class="form-control"
+                  value={password}
+                  onChange={handleChangeInput}
                 />
               </div>
             </div>
@@ -104,11 +175,12 @@ function Register() {
               <div class="col-sm-10">
                 <input
                   type="password"
-                  name="confirm"
-                  value=""
+                  name="cf_password"
                   placeholder="Password Confirm"
                   id="input-confirm"
                   class="form-control"
+                  value={cf_password}
+                  onChange={handleChangeInput}
                 />
               </div>
             </div>
