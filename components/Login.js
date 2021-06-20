@@ -10,7 +10,7 @@ function Login() {
     password: "",
   };
 
-  const [state, dispatch] = useContext(DataContext);
+  const {state, dispatch} = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
   const { email, password } = userData;
   const [message, setMes] = useState();

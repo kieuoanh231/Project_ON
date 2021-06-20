@@ -114,11 +114,17 @@ function NavBar() {
               <span>
                 <Link href="/cart" title="Cart" data-toggle="dropdown">
                   <>
+<<<<<<< HEAD
                     <i
                       className="cart-icon fas fa-shopping-cart"
                       aria-hidden="true"
                     ></i>
                     <span className="cart-length">2</span>
+=======
+                  <i className="cart-icon fas fa-shopping-cart" aria-hidden="true">
+                  </i>
+                  <span className="cart-length">{cart.length}</span>
+>>>>>>> 2581c5d95c6631f6521d5e1b6becee7b9539b231
                   </>
                 </Link>
                 {/* <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
