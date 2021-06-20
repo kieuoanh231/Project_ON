@@ -21,7 +21,7 @@ const register = async (req, res) => {
       password,
       cf_password,
       phone,
-      address,
+      address
     } = req.body;
     const errMsg = valid(
       firstname,
@@ -46,7 +46,7 @@ const register = async (req, res) => {
       password: passwordHash,
       cf_password,
       phone,
-      address,
+      address
     });
 
     await user.save();
