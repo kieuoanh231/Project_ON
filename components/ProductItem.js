@@ -1,6 +1,12 @@
 import Link from "next/link";
-
+import { useContext } from "react";
+import { addToCart } from "../store/Actions";
+import { DataContext } from "../store/GlobalState";
 const Product = ({ product }) => {
+  const { state, dispatch } = useContext(DataContext)
+
+  // const { auth } = state
+  // console.log(state)
   return (
     <div className="single-column col-3">
       <div className="product-layout">
@@ -23,7 +29,7 @@ const Product = ({ product }) => {
               </div>
             </Link>
 
-            <button type="button" className="addcart" title="Add to Cart">
+            <button type="button" onClick= {()=>dispatch(addToCart(product,cart)) } className="addcart" title="Add to Cart">
               Add to Cart
             </button>
           </div>

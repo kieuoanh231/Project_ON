@@ -1,8 +1,8 @@
 export const ACTIONS = {
-  NOTIFY: "NOTIFY",
-  AUTH: "AUTH",
-  ADD_CART: "ADD_CART",
-};
+  NOTIFY: 'NOTIFY',
+  AUTH: 'AUTH',
+  ADD_CART: 'ADD_CART'
+}
 export const addToCart = (product, cart) => {
   if (product.inStock === 0)
     return {

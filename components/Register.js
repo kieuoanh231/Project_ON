@@ -50,7 +50,7 @@ function Register() {
       address: "",
     });
 
-// console.log(show.display)
+console.log(state)
     //   useEffect(() => {
     //     if (res.err=="") {
     //       router.push("/login");
