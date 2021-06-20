@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 
 function NavBar() {
-  const [state, dispatch] = useContext(DataContext);
+  const {state, dispatch} = useContext(DataContext);
   const { auth } = state;
   const router = useRouter();
 
