@@ -28,14 +28,19 @@
   background: #000;
 }
 
-
+.arr{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  fill: #000;
+  cursor: pointer;
+  z-index: 1;
+}
 .arrow {
   width: 20px;
   height: 20px;
   position: absolute;
-  /* top: 270px; */
   top: 50%;
-  /* transform: translateY(-50%); */
   fill: #000;
   cursor: pointer;
   z-index: 1;
@@ -50,11 +55,12 @@
 }
 
 .arrow--up {
-  top: -25px;
+  top: 0;
   left: 30px;
   transform: rotate(90deg);
 }
 .arrow--down {
+  bottom: 0;
   right: 30px;
   transform: rotate(-270deg);
 }

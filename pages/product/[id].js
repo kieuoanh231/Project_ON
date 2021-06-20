@@ -2,14 +2,14 @@ import Product from "../../components/ProductItem";
 import { getData } from "../../utils/fetchData";
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import SliderH from "../../components/SliderH";
+import SliderVertical from "../../components/SliderVertical";
 import dynamic from "next/dynamic"
 import Slider from "../../components/Slider";
 
 const Detail = (props) => {
 
   const [product] = useState(props.product)
- 
+  
   return (
     <div id="product-page" className="container">
       <ul className="breadcrumb">
@@ -33,10 +33,8 @@ const Detail = (props) => {
                     id="additional-carousel"
                     className="slick-carousel clearfix"
                   >
-                   {/* <SliderCall images={product.images}></SliderCall> */}
-                   {/* <Slider></Slider> */}
-                   <SliderH images={product.images}></SliderH>
-          
+                   <SliderVertical images={product.images}></SliderVertical>
+                  
                   </div>
                 </div>
                 <div className="pro-image">
@@ -97,7 +95,7 @@ const Detail = (props) => {
                       <input
                         type="text"
                         name="quantity"
-                        // value="1"
+                        defaultValue="1"
                         size="2"
                         id="input-quantity"
                         className="form-control"
@@ -130,24 +128,11 @@ const Detail = (props) => {
                     Description
                   </a>
                 </li>
-                <li>
-                  <a href="#tab-review" data-toggle="tab">
-                    Reviews (1)
-                  </a>
-                </li>
+              
               </ul>
               <div className="tab-content">
                 <div className="tab-pane active" id="tab-description">
-                  <div>
-                    Unprecedented power. The next generation of processing
-                    technology has arrived. Built into the newest VAIO notebooks
-                    lies Intel&#39;s latest, most powerful innovation yet:
-                    Intel&reg; Centrino&reg; 2 processor technology. Boasting
-                    incredible speed, expanded wireless connectivity, enhanced
-                    multimedia support and greater energy efficiency, all the
-                    high-performance essentials are seamlessly combined into a
-                    single chip.
-                  </div>
+                  <div>{product.description}</div>
                 </div>
               </div>
             </div>
@@ -175,13 +160,8 @@ const Detail = (props) => {
   );
 };
 
-//
-// function SliderCall({images}){
-//   const SliderH = useMemo(()=>dynamic(
-//     ()=>import('../../components/SliderH'),{ssr:false}
-//   ),[])
-//   return <SliderH images={images}></SliderH>
-// }
+
+
 
 //server side render
 export async function getServerSideProps({ params: { id } }) {

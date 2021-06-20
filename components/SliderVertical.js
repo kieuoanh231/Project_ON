@@ -1,74 +1,44 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import { useState } from "react";
 
-export default (props) => {
+export const SliderVertical = (props) => {
+  const [images] = useState(props.images);
+
   const [sliderRef, slider] = useKeenSlider({
     spacing: 10,
-    slidesPerView: 3,
+    slidesPerView: 2,
     vertical: true,
   });
-
   return (
     <>
-      <div ref={sliderRef} className="keen-slider height-slider">
-        <div class="image-additional keen-slider__slide">
-          <a href="#">
-            <img
-              src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
-              title="Zip-Front Jacket"
-              alt="Zip-Front Jacket"
-              width="80"
-              height="80"
-            />
-          </a>
-        </div>
-        <div class="image-additional keen-slider__slide">
-          <a href="#">
-            <img
-              src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
-              title="Zip-Front Jacket"
-              alt="Zip-Front Jacket"
-              width="80"
-              height="80"
-            />
-          </a>
-        </div>
-        <div class="image-additional keen-slider__slide">
-          <a href="#">
-            <img
-              src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
-              title="Zip-Front Jacket"
-              alt="Zip-Front Jacket"
-              width="80"
-              height="80"
-            />
-          </a>
-        </div>
-        <div class="image-additional keen-slider__slide">
-          <a href="#">
-            <img
-              src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-750x750.jpg"
-              title="Zip-Front Jacket"
-              alt="Zip-Front Jacket"
-              width="80"
-              height="80"
-            />
-          </a>
-        </div>
+    <div className="navigation-wrapper">
+      <div ref={sliderRef} className="keen-slider">
+        {images.map((image) => {
+          return(
+          <div key={image.public_id} className="image-additional keen-slider__slide">
+            <a href="#">
+              <img
+                src={image.url}
+                alt={image.url}
+                width="80"
+                height="80"
+              />
+            </a>
+          </div>
+          )
+        })
+        }
       </div>
       {slider && (
         <>
-          <ArrowUp
-            onClick={(e) => e.stopPropagation() || slider.prev()}
-            // disabled={currentSlide === 0}
-          />
-          <ArrowDown
-            onClick={(e) => e.stopPropagation() || slider.next()}
-            // disabled={currentSlide === slider.details().size - 1}
-          />
+          <ArrowUp onClick={(e) => e.stopPropagation() || slider.prev()} />
+          <ArrowDown onClick={(e) => e.stopPropagation() || slider.next()} />
         </>
       )}
+      </div>
+      
     </>
   );
 };
@@ -78,7 +48,7 @@ function ArrowUp(props) {
   return (
     <svg
       onClick={props.onClick}
-      className={"arrows arrow--up" + disabeld}
+      className={"arr arrow--up" + disabeld}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >
@@ -92,7 +62,7 @@ function ArrowDown(props) {
   return (
     <svg
       onClick={props.onClick}
-      className={"arrows arrow--down" + disabeld}
+      className={"arr arrow--down" + disabeld}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >
@@ -100,3 +70,4 @@ function ArrowDown(props) {
     </svg>
   );
 }
+export default SliderVertical;
