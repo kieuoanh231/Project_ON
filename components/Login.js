@@ -1,4 +1,44 @@
+import { useState, useContext, useEffect } from "react";
+import { postData } from "../utils/fetchData";
+import { DataContext } from "../store/GlobalState";
+import { useRouter } from "next/router";
+import Cookie from "js-cookie";
+
 function Login() {
+  const initialState = {
+    email: "",
+    password: "",
+  };
+
+  const display = { display: "none", msg: null };
+
+  const [state, dispatch] = useContext(DataContext);
+  const [userData, setUserData] = useState(initialState);
+  const { email, password } = userData;
+  const [message, setMes] = useState(display);
+  const router = useRouter();
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch({ type: "NOTIFY", payload: { loading: true } });
+
+    const res = await postData("auth/signin", userData);
+    console.log(res.err);
+
+    if (res.err != null) {
+      setMes({ display: "block", msg: res.err });
+      dispatch({ type: "NOTIFY", payload: { loading: false } });
+    } else {
+      // Cookie.set('token')
+      router.push("/");
+      dispatch({ type: "NOTIFY", payload: { loading: false } });
+    }
+  };
   return (
     <>
       <div class="well">
@@ -6,10 +46,18 @@ function Login() {
         <p>
           <strong>I am a returning customer</strong>
         </p>
+        <div
+          class="alert alert-info"
+          role="alert"
+          style={{ display: message.display }}
+        >
+          {message.msg}
+        </div>
+
         <form
-          action="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/login"
           method="post"
           enctype="multipart/form-data"
+          onSubmit={handleSubmit}
         >
           <div class="form-group">
             <label class="control-label" for="input-email">
@@ -18,7 +66,8 @@ function Login() {
             <input
               type="text"
               name="email"
-              value=""
+              value={email}
+              onChange={handleChangeInput}
               placeholder="E-Mail Address"
               id="input-email"
               class="form-control"
@@ -31,21 +80,18 @@ function Login() {
             <input
               type="password"
               name="password"
-              value=""
+              value={password}
+              onChange={handleChangeInput}
               placeholder="Password"
               id="input-password"
               class="form-control"
             />
-            <a href="/">
-              Forgotten Password
-            </a>
+            {/* <a href="/">Forgotten Password</a> */}
           </div>
           <input type="submit" value="Login" class="btn btn-primary" />
         </form>
       </div>
-    
     </>
-  
   );
 }
 

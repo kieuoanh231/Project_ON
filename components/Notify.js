@@ -8,8 +8,6 @@ const Notify=()=>{
     return (
         <>
         {notify.loading && <Loading/>}
-        {notify.err}
-        {notify.success}
         </>
     )
 }
