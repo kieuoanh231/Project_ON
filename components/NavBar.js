@@ -1,17 +1,19 @@
-import React, { useContext, userContex } from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { DataContext } from "../store/GlobalState";
 
 function NavBar() {
-  const [ state, dispatch ] = useContext(DataContext);
-  console.log(state);
-  const {auth} = state;
+  const [state, dispatch] = useContext(DataContext);
+  // console.log(state);
+  const { auth } = state;
+  console.log(auth);
   const loggedRouter = () => {
     return (
       <div id="header_ac" className="dropdown">
         <span>
           <Link href="#" title="My Account" data-toggle="dropdown">
-            <i className="fas fa-user" aria-hidden="true"></i>
+            {/* <i className="fas fa-user" aria-hidden="true"></i> */}
+            {/* <img src={auth.user.avatar} alt={auth.user.avatar}></img> */}
           </Link>
           <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
             <li>
@@ -63,21 +65,21 @@ function NavBar() {
             </div>
 
             {Object.keys(auth).length === 0 ? (
-            <div id="header_ac" className="dropdown">
-              <span>
-                <Link href="#" title="My Account" data-toggle="dropdown">
-                  <i className="fas fa-user" aria-hidden="true"></i>
-                </Link>
-                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                  <li>
-                    <Link href="/register">Register</Link>
-                  </li>
-                  <li>
-                    <Link href="/login">Login</Link>
-                  </li>
-                </ul>
-              </span>
-            </div>
+              <div id="header_ac" className="dropdown">
+                <span>
+                  <Link href="#" title="My Account" data-toggle="dropdown">
+                    <i className="fas fa-user" aria-hidden="true"></i>
+                  </Link>
+                  <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                    <li>
+                      <Link href="/register">Register</Link>
+                    </li>
+                    <li>
+                      <Link href="/login">Login</Link>
+                    </li>
+                  </ul>
+                </span>
+              </div>
             ) : (
               loggedRouter()
             )}
