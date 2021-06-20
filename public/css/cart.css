@@ -1,0 +1,23 @@
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    padding: 10px 15px;
+    vertical-align: middle;
+}
+td.cart-total-title, td.cart-total-price {
+    font-size: 14px;
+    font-weight: 500;
+}
+td.cart-total-price:last-child{
+    font-size: 16px;
+    color: red;
+}
+.pull-left{
+    float:left
+}
+.pull-right{
+    float:right
+}

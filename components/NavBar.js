@@ -1,12 +1,23 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import { DataContext } from "../store/GlobalState";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 function NavBar() {
-  const [state, dispatch] = useContext(DataContext);
-  // console.log(state);
+  const {state, dispatch} = useContext(DataContext);
   const { auth } = state;
-  console.log(auth);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    Cookies.remove("refreshtoken", { path: "api/auth/accessToken" });
+    localStorage.removeItem("firstLogin");
+    dispatch({ type: "AUTH", payload: {} });
+    console.log("Logged out!");
+    router.push("/login");
+    // dispatch({type:'NOTIFY',payload:{msg:"Logged out!"}})
+  };
+
   const loggedRouter = () => {
     return (
       <div id="header_ac" className="dropdown">
@@ -20,7 +31,7 @@ function NavBar() {
               <Link href="#">Profile</Link>
             </li>
             <li>
-              <Link href="/">Logout</Link>
+              <div onClick={handleLogout}>Logout</div>
             </li>
           </ul>
         </span>
@@ -102,14 +113,20 @@ function NavBar() {
 
             <div id="header_cart">
               <span>
-                <Link href="/" title="Cart" data-toggle="dropdown">
-                  <i className="fas fa-shopping-cart" aria-hidden="true"></i>
+                <Link href="/cart" title="Cart" data-toggle="dropdown">
+                  <>
+                    <i
+                      className="cart-icon fas fa-shopping-cart"
+                      aria-hidden="true"
+                    ></i>
+                    <span className="cart-length">2</span>
+                  </>
                 </Link>
-                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                {/* <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
                   <li className="text-center product-cart-empty">
                     Your shopping cart is empty!
                   </li>
-                </ul>
+                </ul> */}
               </span>
             </div>
           </div>

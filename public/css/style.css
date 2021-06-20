@@ -258,6 +258,7 @@ header {
   margin-right: 30px;
 }
 
+
 hr {
   margin-top: 0;
   margin-bottom: 0;
@@ -269,7 +270,20 @@ hr {
   transition: all 1s ease;
   z-index: 1;
 }
+#header_cart{
+  position: relative;
+}
 
+#header_cart .cart-length{
+  font-size: 10px;
+  right: -10px;
+  top: -10px;
+  padding: 2px 5px;
+  position: absolute;
+  background: red;
+  border-radius: 99%;
+  color: white;
+}
 #account-login ul.breadcrumb {
   text-align: center;
   display: inherit;

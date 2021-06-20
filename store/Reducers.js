@@ -1,18 +1,25 @@
-import ACTIONS from "./Actions";
+import { ACTIONS } from "./Actions";
 
 const reducers = (state, action) => {
   switch (action.type) {
     case ACTIONS.NOTIFY:
-        return{
-            ...state,notify:action.payload
-        }
+      return {
+        ...state,
+        notify: action.payload,
+      };
     case ACTIONS.AUTH:
-        return{
-            ...state,auth:action.payload
-        }
+      return {
+        ...state,
+        auth: action.payload,
+      };
+    case ACTIONS.ADD_CART:
+      return {
+        ...state,
+        cart: action.payload,
+      };
     default:
-      return state
+      return state;
   }
 };
 
-export default reducers
+export default reducers;

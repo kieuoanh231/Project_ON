@@ -1870,7 +1870,7 @@ td.cart-total-title {
     text-transform: uppercase;
     position: relative;
     font-weight: 500;
-    color: var(--primary-color);
+   
     text-align: center;
 }
 
@@ -4841,7 +4841,7 @@ ul.list-unstyled {
 .table>thead>tr>th {
     padding: 10px 15px;
     vertical-align: middle;
-    border-color: var(--border-color);
+    /* border-color: var(--border-color); */
 }
 
 .table-bordered>thead>tr>td,

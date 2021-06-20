@@ -1,38 +1,42 @@
 import Link from "next/link";
-
+import { useContext } from "react";
+import { addToCart } from "../store/Actions";
+import { DataContext } from "../store/GlobalState";
 const Product = ({ product }) => {
+  const {state, dispatch} = useContext(DataContext)
+  
+  // const { auth } = state
+  console.log(state)
   return (
     <div className="single-column col-3">
       <div className="product-layout">
         <div className="product-thumb transition">
           <div className="image">
-            <Link href="#">
-              <>
+            <Link href={`/product/${product._id}`}>
+              <div>
                 <img
                   src={product.images[0].url}
-                  alt="Zip-Front Jacket"
-                  title="Zip-Front Jacket"
+                  alt={product.title}
+                  title={product.title}
                   className="img-responsive"
                 />
                 <img
                   className="img-responsive hover-img"
                   src={product.images[1].url}
-                  title="Zip-Front Jacket"
-                  alt="Zip-Front Jacket"
+                  title={product.title}
+                  alt={product.title}
                 />
-              </>
+              </div>
             </Link>
-            {/* <div className="sale-text">
-                        <span className="section-sale">-20%</span>
-                      </div> */}
-            <button type="button" className="addcart" title="Add to Cart">
+
+            <button type="button" onClick= {()=>dispatch(addToCart(product,cart)) } className="addcart" title="Add to Cart">
               Add to Cart
             </button>
           </div>
           <div className="thumb-description clearfix">
             <div className="caption">
               <h4 className="product-title">
-                <Link href="#">{product.title}</Link>
+                <Link href={`/product/${product._id}`}>{product.title}</Link>
               </h4>
               <p className="price">$ {product.price}</p>
               <div className="rating">
@@ -57,7 +61,6 @@ const Product = ({ product }) => {
         </div>
       </div>
     </div>
-
   );
 };
 

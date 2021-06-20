@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { useState, useContext, useEffect } from "react";
+import valid from "../utils/valid";
 import { postData } from "../utils/fetchData";
 import { DataContext } from "../store/GlobalState";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 function Register() {
   const initialState = {
@@ -14,23 +16,20 @@ function Register() {
     address: "",
   };
 
-  const [state, dispatch] = useContext(DataContext);
+  const display={display:"none"}
+
+  const {state, dispatch} = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
-  const {
-    firstname,
-    lastname,
-    email,
-    password,
-    cf_password,
-    phone,
-    address,
-  } = userData;
+  const [show, setShow] = useState(display);
+  const { firstname, lastname, email, password, cf_password, phone, address } =
+    userData;
   const [message, setMes] = useState();
-  const router = useRouter();
+  // const router=useRouter()
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
+    dispatch({ type: 'NOTIFY', payload: {} })
   };
 
   const handleSubmit = async (e) => {
@@ -38,20 +37,39 @@ function Register() {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
     const res = await postData("auth/signup", userData);
+    // console.log(res.msg);
+    setShow({display:"block"})
+    setMes(res.err);
+    dispatch({ type: "NOTIFY", payload: { stop: true } });
+    setUserData({
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      cf_password: "",
+      phone: "",
+      address: "",
+    });
 
-    if (!res.err) {
-      setMes(res.err);
-      dispatch({ type: "NOTIFY", payload: { loading: false } });
-    } else {
-      router.push("/login");
-      dispatch({ type: "NOTIFY", payload: { loading: false } });
-    }
+// console.log(show.display)
+    //   useEffect(() => {
+    //     if (res.err=="") {
+    //       router.push("/login");
+    //     }
+    //   }, [res.err]);
   };
 
   return (
     <>
       <div id="content" class="col-sm-9">
         <h1 class="page_title">Register Account</h1>
+        <p>
+          If you already have an account with us, please login at the{" "}
+          <a href="/login">
+            Login page
+          </a>
+          .
+        </p>
         <form
           method="post"
           enctype="multipart/form-data"
@@ -60,11 +78,9 @@ function Register() {
         >
           <fieldset id="account">
             <legend>Your Personal Details</legend>
-            {message && (
-              <div class="alert alert-info" role="alert">
-                {message}
-              </div>
-            )}
+            <div class="alert alert-info" role="alert" style={{display:show.display}}>
+              {message}
+            </div>
 
             <div class="form-group required">
               <label class="col-sm-2 control-label" for="input-firstname">

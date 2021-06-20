@@ -325,14 +325,14 @@ span.fa-stack{
 }
 
 /* Detail */
-#product-page ul.breadcrumb{
+#product-page ul.breadcrumb, #checkout-cart ul.breadcrumb{
     text-align: center;
     display: inherit;
 }
-#product-page ul.breadcrumb li{
+#product-page ul.breadcrumb li,#checkout-cart ul.breadcrumb li{
     display: inline;
 }
-#product-page ul.breadcrumb li a{
+#product-page ul.breadcrumb li a,#checkout-cart ul.breadcrumb li a{
     text-decoration: none;
 
 }
@@ -539,7 +539,7 @@ a.thumbnail {
     border: 1px solid #e5e5e5;
 }
 
-#product .minus-plus>* {
+.minus-plus>* {
     text-align: center;
     border: none;
     background: transparent;
