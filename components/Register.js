@@ -18,7 +18,7 @@ function Register() {
 
   const display={display:"none"}
 
-  const [state, dispatch] = useContext(DataContext);
+  const {state, dispatch} = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
   const [show, setShow] = useState(display);
   const { firstname, lastname, email, password, cf_password, phone, address } =
@@ -29,6 +29,7 @@ function Register() {
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
+    dispatch({ type: 'NOTIFY', payload: {} })
   };
 
   const handleSubmit = async (e) => {

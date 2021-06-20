@@ -3,9 +3,9 @@ import Link from "next/link";
 import { DataContext } from "../store/GlobalState";
 
 function NavBar() {
-  const [ state, dispatch ] = useContext(DataContext);
-  console.log(state.length);
-  const {auth} = state;
+  const {state, dispatch} = useContext(DataContext);
+  console.log(state);
+  const {cart,auth} = state;
   // const {cart} = state.length
   // const {cart} = state.cart;
   const loggedRouter = () => {
@@ -106,7 +106,7 @@ function NavBar() {
                   <>
                   <i className="cart-icon fas fa-shopping-cart" aria-hidden="true">
                   </i>
-                  <span className="cart-length"></span>
+                  <span className="cart-length">{cart.length}</span>
                   </>
                 </Link>
                 {/* <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
