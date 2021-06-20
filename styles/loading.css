@@ -1,0 +1,88 @@
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    /* opacity: 0.5; */
+}
+
+.loader{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 50%;
+    animation: load 3s linear infinite alternate-reverse;
+
+}
+
+.loader::before{
+    position: absolute;
+    content:"";
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 2px #fff5;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.loading span{
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-size: 24px;
+    position: absolute;
+    font-weight: bold;
+    animation: color 3s linear infinite alternate-reverse;
+}
+
+@keyframes load {
+    0%{
+        transform: rotate(0deg);
+        box-shadow: 0 3px 2px rgb(2, 220, 220);
+    }
+    50%{
+        transform: rotate(180deg);
+        box-shadow: 0 3px 2px rgb(0, 255, 155);
+    }
+    100%{
+        transform: rotate(360deg);
+        box-shadow: 0 3px 2px rgb(238,2,206);
+    }
+}
+
+@keyframes color {
+    0%{
+       color:rgb(2, 220, 220);
+    }
+    50%{
+        color:rgb(0, 255, 155);
+     }
+     100%{
+        color:rgb(238,2,206);
+     }
+
+}
+
+
+/* .loading svg{
+    color: lawngreen;
+    font-size: 5px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: text 1s ease-in-out infinite;
+}
+
+@keyframes text {
+    50%{opacity: 0.1;}
+}
+
+.loading polygon{
+    stroke-dasharray: 22;
+    stroke-dashoffset: 1;
+    animation: dash 4s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate-reverse;
+}
+
+@keyframes dash {
+    to{stroke-dashoffset: 250;}
+} */

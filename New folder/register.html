@@ -9,7 +9,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Shopping Cart</title>
+	<title>Register Account</title>
 	<base href="https://opencart.mahardhi.com/MT04/noriva/02/" />
 			<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js"></script>
 	<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
@@ -42,14 +42,18 @@
 				}
 			</style>
 	<link href="catalog/view/theme/mahardhi/stylesheet/stylesheet.css" rel="stylesheet">
-							<script src="catalog/view/javascript/mahardhi/jquery.cookie.js"></script>
+			<link href="catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet" media="screen" />
+							<script src="catalog/view/javascript/jquery/datetimepicker/moment/moment.min.js"></script>
+			<script src="catalog/view/javascript/jquery/datetimepicker/moment/moment-with-locales.min.js"></script>
+			<script src="catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+			<script src="catalog/view/javascript/mahardhi/jquery.cookie.js"></script>
 		<script src="catalog/view/javascript/common.js"></script>
 		<script src="catalog/view/javascript/mahardhi/jquery-ui.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="catalog/view/theme/mahardhi/stylesheet/mahardhi/jquery-ui.min.css">
 	<script src="catalog/view/javascript/mahardhi/custom.js"></script>	
 				<link href="https://opencart.mahardhi.com/MT04/noriva/02/image/catalog/cart.png" rel="icon" />
 		</head>
-<body class="checkout-cart">
+<body class="account-register">
 	<div class="loader"></div>
 	<nav id="top">
 		<div class="container">
@@ -98,11 +102,8 @@
 							<span class="hidden">My Account</span><i class="icon-user"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-right account-link-toggle">
-															<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/account">My Account</a></li>
-								<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/order">Order History</a></li>
-								<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/transaction">Transactions</a></li>
-								<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/download">Downloads</a></li>
-								<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/logout">Logout</a></li>								
+															<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register">Register</a></li>
+								<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/login">Login</a></li>								
 								
 							<li> <a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/wishlist" id="wishlist-total" title="WishList (0)">WishList (0)</a></li>
 					        <li class="language">	<div class="language-box">
@@ -119,7 +120,7 @@
 						</li>
 									</ul>
 						<input type="hidden" name="code" value="" />
-			<input type="hidden" name="redirect" value="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=checkout/cart" />
+			<input type="hidden" name="redirect" value="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register" />
 		</form>
 	</div>
 </li>    
@@ -141,7 +142,7 @@
 							</li>
 															</ul>
 						<input type="hidden" name="code" value="" />
-			<input type="hidden" name="redirect" value="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=checkout/cart" />
+			<input type="hidden" name="redirect" value="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register" />
 		</form>
 	</div>
  </li>					
@@ -151,50 +152,11 @@
 					<!-- start cart -->			
 					<div class="header_cart"><div id="cart" class="btn-group btn-block">
   <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="btn btn-inverse btn-block btn-lg dropdown-toggle">
-          
-      <span id="cart-total">2</span>
+          <span id="cart-totalx"></span>
       </button>
   <ul class="dropdown-menu header-cart-toggle pull-right ">
-      <li class="cart-content-product">
-      <table class="table table-striped">
-                  <tr>
-            <td class="text-center product-cart-thumb">
-                          <a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=product/product&amp;product_id=36"><img src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-80x80.jpg" alt=" Waistcoat Jacket" title=" Waistcoat Jacket" class="img-thumbnail" />
-              </a> 
-                        </td>
-            <td class="text-left product-cart-details">
-              <a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=product/product&amp;product_id=36" class="product-item-name"> Waistcoat Jacket</a>
-              <div class="product-cart-info">
-                <span class="product-cart-qty">2 x </span>
-                <span class="product-cart-price">$220.00</span>
-              </div>
-            </td>
-            <td class="text-center product-cart-close"><button type="button" onclick="cart.remove('54');" title="Remove" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button></td>
-          </tr>
-                      </table>
-    </li>
-    <li>
-      <div>
-        <table class="table table-bordered">
-                  <tr>
-            <td class="text-left"><strong>Sub-Total</strong></td>
-            <td class="text-right">$180.00</td>
-          </tr>
-                  <tr>
-            <td class="text-left"><strong>Eco Tax (-2.00)</strong></td>
-            <td class="text-right">$4.00</td>
-          </tr>
-                  <tr>
-            <td class="text-left"><strong>VAT (20%)</strong></td>
-            <td class="text-right">$36.00</td>
-          </tr>
-                  <tr>
-            <td class="text-left"><strong>Total</strong></td>
-            <td class="text-right">$221.00</td>
-          </tr>
-                </table>
-        <p class="text-right product-cart-button"><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=checkout/cart" class="btn cart-btn addtocart-btn">View Cart</a>&nbsp;&nbsp;&nbsp;<a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=checkout/checkout" class="btn cart-btn checkout-btn">Checkout</a></p>
-      </div>
+      <li>
+      <p class="text-center product-cart-empty">Your shopping cart is empty!</p>
     </li>
     </ul>
 </div></div>
@@ -503,183 +465,248 @@ $('#mahardhiSearch input[name=\'search\']').bind('keydown', function(e) {
 		}
 	});
 </script>
-<div id="checkout-cart" class="container">
+<div id="account-register" class="container">
   <ul class="breadcrumb">
         <li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=common/home">Home</a></li>
-        <li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=checkout/cart">Shopping Cart</a></li>
+        <li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/account">Account</a></li>
+        <li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register">Register</a></li>
       </ul>
-    
-  
-  <div class="row">
-                <div id="content" class="col-sm-12 checkout">
-            
-            
-
-      <h1>Shopping Cart
-                &nbsp;(0.00kg)
-         </h1>
-      <form action="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=checkout/cart/edit" method="post" enctype="multipart/form-data">
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <td class="text-center">Image</td>
-                <td class="text-left">Product Name</td>
-                <td class="text-left">Model</td>
-                <td class="text-left">Quantity</td>
-                <td class="text-right">Unit Price</td>
-                <td class="text-right">Total</td>
-              </tr>
-            </thead>
-            <tbody>
-            
-                        <tr>
-              <td class="text-center"> <a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=product/product&amp;product_id=36"><img src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-80x80.jpg" alt=" Waistcoat Jacket" title=" Waistcoat Jacket" class="img-thumbnail" /></a> </td>
-              <td class="text-left"><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=product/product&amp;product_id=36"> Waistcoat Jacket</a>                                                 </td>
-              <td class="text-left">Product 9</td>
-              <td class="text-left"><div class="cart_input_block input-group btn-block" style="max-width: 200px;">
-                  <input type="text" name="quantity[54]" value="2" size="1" class="form-control" />
-                  <span class="input-group-btn">
-                  <button type="submit" data-toggle="tooltip" title="Update" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onclick="cart.remove('54');"><i class="fa fa-times-circle"></i></button>
-                  </span></div></td>
-              <td class="text-right">$110.00</td>
-              <td class="text-right">$220.00</td>
-            </tr>
-                                      </tbody>
-            
-          </table>
-        </div>
-      </form>
-            <h3>What would you like to do next?</h3>
-      <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
-      <div class="panel-group" id="accordion">         <div class="panel panel-default">
-  <div class="panel-heading">
-    <h4 class="panel-title"><a href="#collapse-coupon" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">Use Coupon Code <i class="fa fa-caret-down"></i></a></h4>
-  </div>
-  <div id="collapse-coupon" class="panel-collapse collapse">
-    <div class="panel-body">
-      <label class="col-sm-2 control-label" for="input-coupon">Enter your coupon here</label>
-      <div class="input-group">
-        <input type="text" name="coupon" value="" placeholder="Enter your coupon here" id="input-coupon" class="form-control" />
-        <span class="input-group-btn">
-        <input type="button" value="Apply Coupon" id="button-coupon" data-loading-text="Loading..."  class="btn btn-primary" />
-        </span></div>
-      <script type="text/javascript"><!--
-$('#button-coupon').on('click', function() {
-  $.ajax({
-    url: 'index.php?route=extension/total/coupon/coupon',
-    type: 'post',
-    data: 'coupon=' + encodeURIComponent($('input[name=\'coupon\']').val()),
-    dataType: 'json',
-    beforeSend: function() {
-      $('#button-coupon').button('loading');
-    },
-    complete: function() {
-      $('#button-coupon').button('reset');
-    },
-    success: function(json) {
-      $('.alert-dismissible').remove();
-
-      if (json['error']) {
-        $('#content').parent().before('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
-
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
-      }
-
-      if (json['redirect']) {
-        location = json['redirect'];
-      }
-    },
-    error: function(xhr, ajaxOptions, thrownError) {
-      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-    }
-  });
-});
-//--></script>
-    </div>
-  </div>
+    <div class="row"><aside id="column-left" class="col-sm-3 hidden-xs">
+    <div class="account-content">
+	<div class="box-content">
+		<div class="list-group">
+			<h3 class="toggled">Account</h3>
+			<ul class="list-unstyled">
+									<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/login" class="list-group-item">Login</a></li>
+					<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register" class="list-group-item">Register</a></li>
+					<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/forgotten" class="list-group-item">Forgotten Password</a></li>
+								<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/account" class="list-group-item">My Account</a></li>
+								<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/address" class="list-group-item">Address Book</a></li>
+				<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/wishlist" class="list-group-item">Wish List</a></li>
+				<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/order" class="list-group-item">Order History</a></li>
+				<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/download" class="list-group-item">Downloads</a></li>
+				<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/recurring" class="list-group-item">Recurring payments</a></li>
+				<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/reward" class="list-group-item">Reward Points</a></li>
+				<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/return" class="list-group-item">Returns</a></li>
+				<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/transaction" class="list-group-item">Transactions</a></li>
+				<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/newsletter" class="list-group-item">Newsletter</a></li>
+							</ul>
+		</div>
+	</div>
 </div>
 
-                <div class="panel panel-default">
-  <div class="panel-heading">
-    <h4 class="panel-title"><a href="#collapse-voucher" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">Use Gift Certificate <i class="fa fa-caret-down"></i></a></h4>
-  </div>
-  <div id="collapse-voucher" class="panel-collapse collapse">
-    <div class="panel-body">
-      <label class="col-sm-2 control-label" for="input-voucher">Enter your gift certificate code here</label>
-      <div class="input-group">
-        <input type="text" name="voucher" value="" placeholder="Enter your gift certificate code here" id="input-voucher" class="form-control" />
-        <span class="input-group-btn">
-        <input type="submit" value="Apply Gift Certificate" id="button-voucher" data-loading-text="Loading..."  class="btn btn-primary" />
-        </span> </div>
-      <script type="text/javascript"><!--
-$('#button-voucher').on('click', function() {
-  $.ajax({
-    url: 'index.php?route=extension/total/voucher/voucher',
-    type: 'post',
-    data: 'voucher=' + encodeURIComponent($('input[name=\'voucher\']').val()),
-    dataType: 'json',
-    beforeSend: function() {
-      $('#button-voucher').button('loading');
-    },
-    complete: function() {
-      $('#button-voucher').button('reset');
-    },
-    success: function(json) {
-      $('.alert-dismissible').remove();
-      
-      if (json['error']) {
-        $('#content').parent().before('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+    <div class="sidebar">
+	<div class="box-content">
+		<h3 class="box-content toggled">Information</h3>
+		<ul class="list-unstyled">
+							<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=information/information&amp;information_id=4">About Us</a></li>
+							<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=information/information&amp;information_id=6">Delivery Information</a></li>
+							<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=information/information&amp;information_id=3">Privacy Policy</a></li>
+							<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a></li>
+						<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=information/contact">Contact Us</a></li>
+			<li><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=information/sitemap">Site Map</a></li>
+		</ul>
+	</div>
+</div>
+
+  </aside>
+
+                <div id="content" class="col-sm-9">
+      <h1>Register Account</h1>
+      <p>If you already have an account with us, please login at the <a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/login">login page</a>.</p>
+      <form action="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <fieldset id="account">
+          <legend>Your Personal Details</legend>
+          <div class="form-group required" style="display:  none ;">
+            <label class="col-sm-2 control-label">Customer Group</label>
+            <div class="col-sm-10">                            <div class="radio">
+                <label>
+                  <input type="radio" name="customer_group_id" value="1" checked="checked" />
+                  Default</label>
+              </div>
+                            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-firstname">First Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="firstname" value="" placeholder="First Name" id="input-firstname" class="form-control" />
+               </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-lastname">Last Name</label>
+            <div class="col-sm-10">
+              <input type="text" name="lastname" value="" placeholder="Last Name" id="input-lastname" class="form-control" />
+               </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-email">E-Mail</label>
+            <div class="col-sm-10">
+              <input type="email" name="email" value="" placeholder="E-Mail" id="input-email" class="form-control" />
+               </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-telephone">Telephone</label>
+            <div class="col-sm-10">
+              <input type="tel" name="telephone" value="" placeholder="Telephone" id="input-telephone" class="form-control" />
+               </div>
+          </div>
+                  </fieldset>
+        <fieldset>
+          <legend>Your Password</legend>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-password">Password</label>
+            <div class="col-sm-10">
+              <input type="password" name="password" value="" placeholder="Password" id="input-password" class="form-control" />
+               </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-confirm">Password Confirm</label>
+            <div class="col-sm-10">
+              <input type="password" name="confirm" value="" placeholder="Password Confirm" id="input-confirm" class="form-control" />
+               </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Newsletter</legend>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Subscribe</label>
+            <div class="col-sm-10">               <label class="radio-inline">
+                <input type="radio" name="newsletter" value="1" />
+                Yes</label>
+              <label class="radio-inline">
+                <input type="radio" name="newsletter" value="0" checked="checked" />
+                No</label>
+               </div>
+          </div>
+        </fieldset>
         
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
-      }
-      
-      if (json['redirect']) {
-        location = json['redirect'];
-      }
-    },
-    error: function(xhr, ajaxOptions, thrownError) {
-      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-    }
-  });
-});
-//--></script>
-    </div>
-  </div>
-</div>
-
-         </div>
-       <br />
-      <div class="row">
-        <div class="col-sm-4 col-sm-offset-8">
-          <table class="table table-bordered">
-                        <tr>
-              <td class="text-left cart-total-title">Sub-Total:</td>
-              <td class="text-right cart-total-price">$180.00</td>
-            </tr>
-                        <tr>
-              <td class="text-left cart-total-title">Eco Tax (-2.00):</td>
-              <td class="text-right cart-total-price">$4.00</td>
-            </tr>
-                        <tr>
-              <td class="text-left cart-total-title">VAT (20%):</td>
-              <td class="text-right cart-total-price">$36.00</td>
-            </tr>
-                        <tr>
-              <td class="text-left cart-total-title">Total:</td>
-              <td class="text-right cart-total-price">$220.00</td>
-            </tr>
-                      </table>
+                <div class="buttons">
+          <div class="text-right">I have read and agree to the <a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=information/information/agree&amp;information_id=3" class="agree"><b>Privacy Policy</b></a>
+                        <input type="checkbox" name="agree" value="1" />
+                        &nbsp;
+            <input type="submit" value="Continue" class="btn btn-primary" />
+          </div>
         </div>
-      </div>
-      <div class="buttons clearfix">
-        <div class="pull-left"><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=common/home" class="btn btn-default">Continue Shopping</a></div>
-        <div class="pull-right"><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=checkout/checkout" class="btn btn-primary">Checkout</a></div>
-      </div>
+              </form>
       </div>
     </div>
 </div>
+<script type="text/javascript"><!--
+// Sort the custom fields
+$('#account .form-group[data-sort]').detach().each(function() {
+	if ($(this).attr('data-sort') >= 0 && $(this).attr('data-sort') <= $('#account .form-group').length) {
+		$('#account .form-group').eq($(this).attr('data-sort')).before(this);
+	}
+
+	if ($(this).attr('data-sort') > $('#account .form-group').length) {
+		$('#account .form-group:last').after(this);
+	}
+
+	if ($(this).attr('data-sort') == $('#account .form-group').length) {
+		$('#account .form-group:last').after(this);
+	}
+
+	if ($(this).attr('data-sort') < -$('#account .form-group').length) {
+		$('#account .form-group:first').before(this);
+	}
+});
+
+$('input[name=\'customer_group_id\']').on('change', function() {
+	$.ajax({
+		url: 'index.php?route=account/register/customfield&customer_group_id=' + this.value,
+		dataType: 'json',
+		success: function(json) {
+			$('.custom-field').hide();
+			$('.custom-field').removeClass('required');
+
+			for (i = 0; i < json.length; i++) {
+				custom_field = json[i];
+
+				$('#custom-field' + custom_field['custom_field_id']).show();
+
+				if (custom_field['required']) {
+					$('#custom-field' + custom_field['custom_field_id']).addClass('required');
+				}
+			}
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+});
+
+$('input[name=\'customer_group_id\']:checked').trigger('change');
+//--></script> 
+<script type="text/javascript"><!--
+$('button[id^=\'button-custom-field\']').on('click', function() {
+	var element = this;
+
+	$('#form-upload').remove();
+
+	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+
+	$('#form-upload input[name=\'file\']').trigger('click');
+
+	if (typeof timer != 'undefined') {
+    	clearInterval(timer);
+	}
+
+	timer = setInterval(function() {
+		if ($('#form-upload input[name=\'file\']').val() != '') {
+			clearInterval(timer);
+
+			$.ajax({
+				url: 'index.php?route=tool/upload',
+				type: 'post',
+				dataType: 'json',
+				data: new FormData($('#form-upload')[0]),
+				cache: false,
+				contentType: false,
+				processData: false,
+				beforeSend: function() {
+					$(element).button('loading');
+				},
+				complete: function() {
+					$(element).button('reset');
+				},
+				success: function(json) {
+					$(element).parent().find('.text-danger').remove();
+
+					if (json['error']) {
+						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+					}
+
+					if (json['success']) {
+						alert(json['success']);
+
+						$(element).parent().find('input').val(json['code']);
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+				}
+			});
+		}
+	}, 500);
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('.date').datetimepicker({
+	language: 'en-gb',
+	pickTime: false
+});
+
+$('.time').datetimepicker({
+	language: 'en-gb',
+	pickDate: false
+});
+
+$('.datetime').datetimepicker({
+	language: 'en-gb',
+	pickDate: true,
+	pickTime: true
+});
+//--></script> 
 <footer class="mt-80">
 	<div class="container">
 		<div class="footer-top">
@@ -714,196 +741,6 @@ $('#button-voucher').on('click', function() {
 	      	</div>
 	      		      	<div class="col-sm-3">
 				<div class="position-footer-right">
-<div class="box mblog section mt-80">
-	<div class="container">
-		<div class="box-content">
-					<div class="page-title section"><h3>From Our Blog</h3></div>
-							<div class="block_box row">
-										<div id="blogcarousel" class="blogs-block  blog-carousel  clearfix" data-items="4">
-									
-											
-								
-					<div  class="blog-block product-layout  col-xs-12">
-						<div class="item">
-							<div class="blog-info">
-																<div class="image">
-									<a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=1"><img src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog1-415x415.jpg" alt="" title="Consectetur adipiscing..." class="img-responsive" /></a>
-									<div class="zoom-post">
-										<a class="hover-zoom" href="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog1-1394x1394.jpg" data-lightbox="example-set" title="Consectetur adipiscing..."></a>
-										<a class="hover-post" href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=1"></a>
-									</div>
-								</div>	
-														
-							</div>
-							<div class="caption blog-description">
-								<div class="link_info">
-																	<span class="block-date"><i class="fa fa-calendar-o"></i>05 December 2019</span>
-									
-								<span class="blog-comment"><i class="fa fa-comments-o"></i>2 Comments</span>
-
-								<h4 class=""><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=1">Consectetur adipiscing...</a></h4>
-								<div class="blog-text">
-									<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500...</span>									
-								</div>
-								<a class="blog-read btn-default" onclick="location.href = ('https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=1');"  title="Read more">Read more</a>
-								</div>
-							</div>
-						</div>
-					</div>				
-								
-					<div  class="blog-block product-layout  col-xs-12">
-						<div class="item">
-							<div class="blog-info">
-																<div class="image">
-									<a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=3"><img src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog3-415x415.jpg" alt="" title="Lorem Ipsum Dolo..." class="img-responsive" /></a>
-									<div class="zoom-post">
-										<a class="hover-zoom" href="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog3-1394x1394.jpg" data-lightbox="example-set" title="Lorem Ipsum Dolo..."></a>
-										<a class="hover-post" href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=3"></a>
-									</div>
-								</div>	
-														
-							</div>
-							<div class="caption blog-description">
-								<div class="link_info">
-																	<span class="block-date"><i class="fa fa-calendar-o"></i>05 December 2019</span>
-									
-								<span class="blog-comment"><i class="fa fa-comments-o"></i>1 Comments</span>
-
-								<h4 class=""><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=3">Lorem Ipsum Dolo...</a></h4>
-								<div class="blog-text">
-									<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500...</span>									
-								</div>
-								<a class="blog-read btn-default" onclick="location.href = ('https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=3');"  title="Read more">Read more</a>
-								</div>
-							</div>
-						</div>
-					</div>				
-								
-					<div  class="blog-block product-layout  col-xs-12">
-						<div class="item">
-							<div class="blog-info">
-																<div class="image">
-									<a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=4"><img src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog4-415x415.jpg" alt="" title="Nam nec rhoncus est ..." class="img-responsive" /></a>
-									<div class="zoom-post">
-										<a class="hover-zoom" href="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog4-1394x1394.jpg" data-lightbox="example-set" title="Nam nec rhoncus est ..."></a>
-										<a class="hover-post" href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=4"></a>
-									</div>
-								</div>	
-														
-							</div>
-							<div class="caption blog-description">
-								<div class="link_info">
-																	<span class="block-date"><i class="fa fa-calendar-o"></i>05 December 2019</span>
-									
-								<span class="blog-comment"><i class="fa fa-comments-o"></i>1 Comments</span>
-
-								<h4 class=""><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=4">Nam nec rhoncus est ...</a></h4>
-								<div class="blog-text">
-									<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500...</span>									
-								</div>
-								<a class="blog-read btn-default" onclick="location.href = ('https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=4');"  title="Read more">Read more</a>
-								</div>
-							</div>
-						</div>
-					</div>				
-								
-					<div  class="blog-block product-layout  col-xs-12">
-						<div class="item">
-							<div class="blog-info">
-																<div class="image">
-									<a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=5"><img src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog5-415x415.jpg" alt="" title="Duis pulvinar augue nisi..." class="img-responsive" /></a>
-									<div class="zoom-post">
-										<a class="hover-zoom" href="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog5-1394x1394.jpg" data-lightbox="example-set" title="Duis pulvinar augue nisi..."></a>
-										<a class="hover-post" href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=5"></a>
-									</div>
-								</div>	
-														
-							</div>
-							<div class="caption blog-description">
-								<div class="link_info">
-																	<span class="block-date"><i class="fa fa-calendar-o"></i>12 March 2021</span>
-									
-								<span class="blog-comment"><i class="fa fa-comments-o"></i>0 Comments</span>
-
-								<h4 class=""><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=5">Duis pulvinar augue nisi...</a></h4>
-								<div class="blog-text">
-									<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500...</span>									
-								</div>
-								<a class="blog-read btn-default" onclick="location.href = ('https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=5');"  title="Read more">Read more</a>
-								</div>
-							</div>
-						</div>
-					</div>				
-								
-					<div  class="blog-block product-layout  col-xs-12">
-						<div class="item">
-							<div class="blog-info">
-																<div class="image">
-									<a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=2"><img src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog2-415x415.jpg" alt="" title="The standard Lorem Ipsum..." class="img-responsive" /></a>
-									<div class="zoom-post">
-										<a class="hover-zoom" href="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/blogs/blog2-1394x1394.jpg" data-lightbox="example-set" title="The standard Lorem Ipsum..."></a>
-										<a class="hover-post" href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=2"></a>
-									</div>
-								</div>	
-														
-							</div>
-							<div class="caption blog-description">
-								<div class="link_info">
-																	<span class="block-date"><i class="fa fa-calendar-o"></i>05 December 2019</span>
-									
-								<span class="blog-comment"><i class="fa fa-comments-o"></i>1 Comments</span>
-
-								<h4 class=""><a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=2">The standard Lorem Ipsum...</a></h4>
-								<div class="blog-text">
-									<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500...</span>									
-								</div>
-								<a class="blog-read btn-default" onclick="location.href = ('https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=blog/article&amp;article_id=2');"  title="Read more">Read more</a>
-								</div>
-							</div>
-						</div>
-					</div>				
-									</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<script><!--
-$(document).ready(function() {	
-	const direc = $('html').attr('dir');
-
-	$('.blog-carousel').each(function () {
-		if ($(this).closest('#column-left').length == 0 && $(this).closest('#column-right').length == 0) {
-			$(this).addClass('owl-carousel owl-theme');
-				const items = $(this).data('items') || 4;
-				const sliderOptions = {
-					loop: false,
-					nav: true,
-					navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-					dots: false,
-					items: items,
-					responsiveRefreshRate: 200,
-					responsive: {
-					0: { items: 1 },
-					601: { items: ((items - 2) > 1) ? (items - 2) : 1 },
-					992: { items: ((items - 1) > 1) ? (items - 1) : 1 },				
-					1441: { items: items }
-				}
-			};
-			if (direc == 'rtl') sliderOptions['rtl'] = true;
-			$(this).owlCarousel(sliderOptions);
-		}
-	});
-});
-//--></script>
-</div>
-			</div>
-		</div>
-	</div>
-	<div class="footer_bottom">
-		<div class="container">
-			<div class="position-footer-bottom">
-  <div class="payment-link">     <img src="image/catalog/payment.png" alt="">  </div>
 <div class="news">
 	<div class="newsletterblock">
 		<div class="newsletter-form block-content">					
@@ -962,6 +799,14 @@ $(document).ready(function() {
 
 
 
+</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer_bottom">
+		<div class="container">
+			<div class="position-footer-bottom">
+  <div class="payment-link">     <img src="image/catalog/payment.png" alt="">  </div>
   <div class="social-media">  <a href="#"><i class="fa fa-facebook"></i></a>  <a href="#"><i class="fa fa-twitter"></i></a>  <a href="#"><i class="fa fa-youtube-play"></i></a>  <a href="#"><i class="fa fa-google-plus"></i></a>  <a href="#"><i class="fa fa-pinterest-p"></i></a></div>
 </div>			
 		</div>

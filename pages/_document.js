@@ -15,7 +15,8 @@ class Mydocument extends Document{
                     <link rel="stylesheet" href="/css/slider.css"/>
                     <link rel="stylesheet" href="/css/footer.css"/>
                     <link rel="stylesheet" href="/css/product.css"/>
-                    {/* <link rel="stylesheet" href="/test.css"/> */}
+                    <link rel="stylesheet" href="/css/cart.css"/>
+                    {/* <link rel="stylesheet" href="/bootstrap.min.css"/> */}
                     <link rel="stylesheet" href="/reponsive/max991.css"/>
                     <link rel="stylesheet" href="/reponsive/max1440.css"/>
                     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

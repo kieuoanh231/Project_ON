@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
+import { DataContext } from "../store/GlobalState";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 function NavBar() {
+  const [state, dispatch] = useContext(DataContext);
+  const { auth } = state;
+  const router = useRouter();
+
+  const handleLogout = () => {
+    Cookies.remove("refreshtoken", { path: "api/auth/accessToken" });
+    localStorage.removeItem("firstLogin");
+    dispatch({ type: "AUTH", payload: {} });
+    console.log("Logged out!");
+    router.push("/login");
+    // dispatch({type:'NOTIFY',payload:{msg:"Logged out!"}})
+  };
+
+  const loggedRouter = () => {
+    return (
+      <div id="header_ac" className="dropdown">
+        <span>
+          <Link href="#" title="My Account" data-toggle="dropdown">
+            <i className="fas fa-user" aria-hidden="true"></i>
+          </Link>
+          <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+            <li>
+              <Link href="#">Profile</Link>
+            </li>
+            <li>
+              <div onClick={handleLogout}>Logout</div>
+            </li>
+          </ul>
+        </span>
+      </div>
+    );
+  };
+
   return (
     <header>
       <div className="container">
@@ -33,37 +69,64 @@ function NavBar() {
 
           <div className="header-right header-links">
             <div className="btn_search">
-              <a className="search-btn">
+              <span className="search-btn">
                 <i className="fas fa-search" aria-hidden="true"></i>
-              </a>
+              </span>
             </div>
 
-            <div id="header_ac" className="dropdown">
-              <Link href="#" title="My Account" data-toggle="dropdown">
-                <span className="."> <i className="fas fa-user" aria-hidden="true"></i>
+            {Object.keys(auth).length === 0 ? (
+              <div id="header_ac" className="dropdown">
+                <span>
+                  <Link href="#" title="My Account" data-toggle="dropdown">
+                    <i className="fas fa-user" aria-hidden="true"></i>
+                  </Link>
+                  <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                    <li>
+                      <Link href="/register">Register</Link>
+                    </li>
+                    <li>
+                      <Link href="/login">Login</Link>
+                    </li>
+                  </ul>
                 </span>
-              </Link>
-              <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                <li>
-                  <Link href="/signup">Register</Link>
-                </li>
-                <li>
-                  <Link href="/signin">Login</Link>
-                </li>
-              </ul>
-            </div>
+              </div>
+            ) : (
+              loggedRouter()
+            )}
+
+            {/* <div id="header_ac" className="dropdown">
+              <span>
+                <Link href="#" title="My Account" data-toggle="dropdown">
+                  <i className="fas fa-user" aria-hidden="true"></i>
+                </Link>
+                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                  <li>
+                    <Link href="/register">Register</Link>
+                  </li>
+                  <li>
+                    <Link href="/login">Login</Link>
+                  </li>
+                </ul>
+              </span>
+            </div> */}
+
             <div id="header_cart">
-              <Link href="/" title="Cart" data-toggle="dropdown">
-                <span className="."><i className="fas fa-shopping-cart" aria-hidden="true"></i>
-                </span>
-              </Link>
-              <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                <li>
-                  <p className="text-center product-cart-empty">
+              <span>
+                <Link href="/cart" title="Cart" data-toggle="dropdown">
+                  <>
+                    <i
+                      className="cart-icon fas fa-shopping-cart"
+                      aria-hidden="true"
+                    ></i>
+                    <span className="cart-length">2</span>
+                  </>
+                </Link>
+                {/* <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                  <li className="text-center product-cart-empty">
                     Your shopping cart is empty!
-                  </p>
-                </li>
-              </ul>
+                  </li>
+                </ul> */}
+              </span>
             </div>
           </div>
         </div>
@@ -117,7 +180,7 @@ function NavBar() {
             </script> */}
         <i className="fas fa-times icon-close" aria-hidden="true"></i>
       </div>
-      <hr/>
+      <hr />
       <div className="header-bottom">
         <div className="container">
           <nav className="navbar navbar-expand-sm">
@@ -169,7 +232,6 @@ function NavBar() {
           </nav>
         </div>
       </div>
-    
     </header>
   );
 }

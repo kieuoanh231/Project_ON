@@ -6,13 +6,15 @@ body {
 }
 
 a {
-    color: inherit;
+    color: #777777;
     text-decoration: none;
 }
 
 * {
     box-sizing: border-box;
 }
+
+@import url("./loading.css");
 
 [class^="number-slide"],
 [class*=" number-slide"] {
@@ -25,4 +27,12 @@ a {
     font-weight: 500;
     height: 500px;
     max-height: 100vh;
+}
+p {
+    margin: 0 0 10px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: normal;
 }

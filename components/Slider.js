@@ -3,7 +3,7 @@ import { useKeenSlider } from "keen-slider/react";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
-function Slider(props) {
+function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pause, setPause] = useState(false);
   const timer = React.useRef();
@@ -23,7 +23,7 @@ function Slider(props) {
     },
   });
 
- useEffect(() => {
+  useEffect(() => {
     sliderRef.current.addEventListener("mouseover", () => {
       setPause(true);
     });
@@ -32,7 +32,7 @@ function Slider(props) {
     });
   }, [sliderRef]);
 
- useEffect(() => {
+  useEffect(() => {
     timer.current = setInterval(() => {
       if (!pause && slider) {
         slider.next();
@@ -65,35 +65,35 @@ function Slider(props) {
               />
             </Link>
           </div>
-        </div>
-        {slider && (
-          <>
-            <ArrowLeft
-              onClick={(e) => e.stopPropagation() || slider.prev()}
-              disabled={currentSlide === 0}
-            />
-            <ArrowRight
-              onClick={(e) => e.stopPropagation() || slider.next()}
-              disabled={currentSlide === slider.details().size - 1}
-            />
-          </>
-        )}
-      </div>
-      {slider && (
-        <div className="dots">
-          {[...Array(slider.details().size).keys()].map((idx) => {
-            return (
-              <button
-                key={idx}
-                onClick={() => {
-                  slider.moveToSlideRelative(idx);
-                }}
-                className={"dot" + (currentSlide === idx ? " active" : "")}
+          {slider && (
+            <div className="dots">
+              {[...Array(slider.details().size).keys()].map((idx) => {
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      slider.moveToSlideRelative(idx);
+                    }}
+                    className={"dot" + (currentSlide === idx ? " active" : "")}
+                  />
+                );
+              })}
+            </div>
+          )}
+          {slider && (
+            <>
+              <ArrowLeft
+                onClick={(e) => e.stopPropagation() || slider.prev()}
+                disabled={currentSlide === 0}
               />
-            );
-          })}
+              <ArrowRight
+                onClick={(e) => e.stopPropagation() || slider.next()}
+                disabled={currentSlide === slider.details().size - 1}
+              />
+            </>
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 }
