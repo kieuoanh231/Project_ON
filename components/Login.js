@@ -26,13 +26,21 @@ function Login() {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
     const res = await postData("auth/signin", userData);
-    console.log(res.err);
 
     if (res.err != null) {
       setMes(res.err);
       dispatch({ type: "NOTIFY", payload: { loading: false } });
     } else {
-      // Cookie.set('token')
+      setMes("Login success!");
+      dispatch({
+        type: "AUTH",
+        payload: { toke: res.accessToken, user: res.user },
+      });
+      Cookie.set("refreshtoken", res.refreshToken, {
+        path: "api/auth/accessToken",
+        expires: 7,
+      });
+      localStorage.setItem("firstLogin", true);
       router.push("/");
       dispatch({ type: "NOTIFY", payload: { loading: false } });
     }

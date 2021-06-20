@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useContext, userContex } from "react";
 import Link from "next/link";
+import { DataContext } from "../store/GlobalState";
 
 function NavBar() {
+  const [ state, dispatch ] = useContext(DataContext);
+  console.log(state);
+  const {auth} = state;
+  const loggedRouter = () => {
+    return (
+      <div id="header_ac" className="dropdown">
+        <span>
+          <Link href="#" title="My Account" data-toggle="dropdown">
+            <i className="fas fa-user" aria-hidden="true"></i>
+          </Link>
+          <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+            <li>
+              <Link href="#">Profile</Link>
+            </li>
+            <li>
+              <Link href="/">Logout</Link>
+            </li>
+          </ul>
+        </span>
+      </div>
+    );
+  };
+
   return (
     <header>
       <div className="container">
@@ -37,6 +61,8 @@ function NavBar() {
                 <i className="fas fa-search" aria-hidden="true"></i>
               </span>
             </div>
+
+            {Object.keys(auth).length === 0 ? (
             <div id="header_ac" className="dropdown">
               <span>
                 <Link href="#" title="My Account" data-toggle="dropdown">
@@ -52,6 +78,25 @@ function NavBar() {
                 </ul>
               </span>
             </div>
+            ) : (
+              loggedRouter()
+            )}
+
+            {/* <div id="header_ac" className="dropdown">
+              <span>
+                <Link href="#" title="My Account" data-toggle="dropdown">
+                  <i className="fas fa-user" aria-hidden="true"></i>
+                </Link>
+                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                  <li>
+                    <Link href="/register">Register</Link>
+                  </li>
+                  <li>
+                    <Link href="/login">Login</Link>
+                  </li>
+                </ul>
+              </span>
+            </div> */}
 
             <div id="header_cart">
               <span>
@@ -60,7 +105,7 @@ function NavBar() {
                 </Link>
                 <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
                   <li className="text-center product-cart-empty">
-                      Your shopping cart is empty!
+                    Your shopping cart is empty!
                   </li>
                 </ul>
               </span>

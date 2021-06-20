@@ -29,19 +29,11 @@ const login = async (req, res) => {
     const accessToken = createAccessToken({ id: user._id })
     const refreshToken = createRefreshToken({ id: user._id })
 
-    res.status(400).json({ err: null });
     res.json({
       err:null,
       refreshToken,
       accessToken,
-      user:{
-        firstname:user.firstname,
-        lastname:user.lastname,
-        email:user.email,
-        role:user.role,
-        avatar:user.avatar,
-        root:user.root
-      }
+      user:user
     })
   } catch (err) {
     return res.status(500).json({ err: err.message });
