@@ -1,9 +1,10 @@
-import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import valid from "../utils/valid";
 import { postData } from "../utils/fetchData";
-import Router from "next/router"
+import { DataContext } from "../store/GlobalState";
+// import { useRouter } from "next/router";
+
 function Register() {
   const initialState = {
     firstname: "",
@@ -14,51 +15,61 @@ function Register() {
     phone: "",
     address: "",
   };
-  // console.log(initialState);
 
+  const display={display:"none"}
+
+  const [state, dispatch] = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
+  const [show, setShow] = useState(display);
   const { firstname, lastname, email, password, cf_password, phone, address } =
     userData;
+  const [message, setMes] = useState();
+  // const router=useRouter()
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
-  const [message,setMessage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const err = valid(
-      firstname,
-      lastname,
-      email,
-      password,
-      cf_password,
-      phone,
-      address
-    );
-    if (err) {
-      setMessage(err)
-    }
+    dispatch({ type: "NOTIFY", payload: { loading: true } });
 
     const res = await postData("auth/signup", userData);
-    setMessage(err)
+    // console.log(res.msg);
+    setShow({display:"block"})
+    setMes(res.err);
+    dispatch({ type: "NOTIFY", payload: { stop: true } });
+    setUserData({
+      firstname: "",
+      lastname: "",
+      email: "",
+      password: "",
+      cf_password: "",
+      phone: "",
+      address: "",
+    });
 
-    // console.log("success")
+// console.log(show.display)
+    //   useEffect(() => {
+    //     if (res.err=="") {
+    //       router.push("/login");
+    //     }
+    //   }, [res.err]);
   };
+
   return (
     <>
       <div id="content" class="col-sm-9">
         <h1 class="page_title">Register Account</h1>
         <p>
           If you already have an account with us, please login at the{" "}
-          <a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/login">
-            login page
+          <a href="/login">
+            Login page
           </a>
           .
         </p>
         <form
-          action="/register"
           method="post"
           enctype="multipart/form-data"
           class="form-horizontal"
@@ -66,7 +77,10 @@ function Register() {
         >
           <fieldset id="account">
             <legend>Your Personal Details</legend>
-            <div>{message}</div>
+            <div class="alert alert-info" role="alert" style={{display:show.display}}>
+              {message}
+            </div>
+
             <div class="form-group required">
               <label class="col-sm-2 control-label" for="input-firstname">
                 First Name
@@ -183,29 +197,6 @@ function Register() {
               </div>
             </div>
           </fieldset>
-          <fieldset>
-            <legend>Newsletter</legend>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">Subscribe</label>
-              <div class="col-sm-10">
-                {" "}
-                <label class="radio-inline">
-                  <input type="radio" name="newsletter" value="1" />
-                  Yes
-                </label>
-                <label class="radio-inline">
-                  <input
-                    type="radio"
-                    name="newsletter"
-                    value="0"
-                    checked="checked"
-                  />
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
-
           <div class="buttons">
             <div class="text-right">
               I have read and agree to the{" "}
@@ -225,4 +216,5 @@ function Register() {
     </>
   );
 }
+
 export default Register;

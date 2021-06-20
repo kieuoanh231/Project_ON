@@ -15,6 +15,7 @@ class Mydocument extends Document{
                     <link rel="stylesheet" href="/css/slider.css"/>
                     <link rel="stylesheet" href="/css/footer.css"/>
                     <link rel="stylesheet" href="/css/product.css"/>
+                    <link rel="stylesheet" href="/css/cart.css"/>
                     {/* <link rel="stylesheet" href="/bootstrap.min.css"/> */}
                     <link rel="stylesheet" href="/reponsive/max991.css"/>
                     <link rel="stylesheet" href="/reponsive/max1440.css"/>

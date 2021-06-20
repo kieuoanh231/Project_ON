@@ -1,7 +1,10 @@
-import React from "react";
 import Link from "next/link";
-
+import React, { useContext } from 'react'
+import { DataContext } from '../store/GlobalState'
 function NavBar() {
+
+  const {state, dispatch} = useContext(DataContext);
+  // const { cart } = state
   return (
     <header>
       <div className="container">
@@ -44,7 +47,7 @@ function NavBar() {
                 </Link>
                 <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
                   <li>
-                    <Link href="/signup">Register</Link>
+                    <Link href="/register">Register</Link>
                   </li>
                   <li>
                     <Link href="/login">Login</Link>
@@ -55,14 +58,18 @@ function NavBar() {
 
             <div id="header_cart">
               <span>
-                <Link href="/" title="Cart" data-toggle="dropdown">
-                  <i className="fas fa-shopping-cart" aria-hidden="true"></i>
+                <Link href="/cart" title="Cart" data-toggle="dropdown">
+                  <>
+                  <i className="cart-icon fas fa-shopping-cart" aria-hidden="true">
+                  </i>
+                  <span className="cart-length"></span>
+                  </>
                 </Link>
-                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                {/* <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
                   <li className="text-center product-cart-empty">
                       Your shopping cart is empty!
                   </li>
-                </ul>
+                </ul> */}
               </span>
             </div>
           </div>
