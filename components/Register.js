@@ -14,8 +14,6 @@ function Register() {
     address: "",
   };
 
-  const display = { display: "none",msg:null };
-
   const [state, dispatch] = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
   const {
@@ -27,8 +25,8 @@ function Register() {
     phone,
     address,
   } = userData;
-  const [message, setMes] = useState(display);
-  const router=useRouter()
+  const [message, setMes] = useState();
+  const router = useRouter();
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -41,9 +39,9 @@ function Register() {
 
     const res = await postData("auth/signup", userData);
 
-    if (res.err != null) {
-      setMes({ display: "block",msg:res.err });
-      dispatch({ type: "NOTIFY", payload: { loading: false} });
+    if (!res.err) {
+      setMes(res.err);
+      dispatch({ type: "NOTIFY", payload: { loading: false } });
     } else {
       router.push("/login");
       dispatch({ type: "NOTIFY", payload: { loading: false } });
@@ -62,13 +60,11 @@ function Register() {
         >
           <fieldset id="account">
             <legend>Your Personal Details</legend>
-            <div
-              class="alert alert-info"
-              role="alert"
-              style={{ display: message.display }}
-            >
-              {message.msg}
-            </div>
+            {message && (
+              <div class="alert alert-info" role="alert">
+                {message}
+              </div>
+            )}
 
             <div class="form-group required">
               <label class="col-sm-2 control-label" for="input-firstname">

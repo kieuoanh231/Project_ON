@@ -10,12 +10,10 @@ function Login() {
     password: "",
   };
 
-  const display = { display: "none", msg: null };
-
   const [state, dispatch] = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
   const { email, password } = userData;
-  const [message, setMes] = useState(display);
+  const [message, setMes] = useState();
   const router = useRouter();
 
   const handleChangeInput = (e) => {
@@ -31,7 +29,7 @@ function Login() {
     console.log(res.err);
 
     if (res.err != null) {
-      setMes({ display: "block", msg: res.err });
+      setMes(res.err);
       dispatch({ type: "NOTIFY", payload: { loading: false } });
     } else {
       // Cookie.set('token')
@@ -46,13 +44,11 @@ function Login() {
         <p>
           <strong>I am a returning customer</strong>
         </p>
-        <div
-          class="alert alert-info"
-          role="alert"
-          style={{ display: message.display }}
-        >
-          {message.msg}
-        </div>
+        {message && (
+          <div class="alert alert-info" role="alert">
+            {message}
+          </div>
+        )}
 
         <form
           method="post"
