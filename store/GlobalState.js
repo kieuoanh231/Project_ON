@@ -1,24 +1,14 @@
-<<<<<<< HEAD
+
 import { useReducer , useEffect} from "react";
 import { createContext } from "react";
 import reducers from "./Reducers";
 
-<<<<<<< HEAD
+
 export const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const initialState = { notify: {}, auth: {}, cart:[] };
   const [state, dispatch] = useReducer(reducers, initialState);
  
-=======
-import { createContext, useReducer, useEffect } from "react";
-import reducers from "./Reducers";
-import { getData } from "../utils/fetchData";
-
-export const DataContext = createContext();
-export const DataProvider = ({ children }) => {
-  const initialState = { notify: {}, auth: {} };
-  const [state, dispatch] = useReducer(reducers, initialState);
-
   useEffect(() => {
     const firstLogin = localStorage.getItem("firstLogin");
     if (firstLogin) {
@@ -36,19 +26,9 @@ export const DataProvider = ({ children }) => {
       });
     }
   }, []);
->>>>>>> oanh
-  return (
-    <DataContext.Provider value={[state, dispatch]}>
-      {children}
-    </DataContext.Provider>
-  );
-};
-<<<<<<< HEAD
-=======
-export const DataContext=createContext()
-export const DataProvider=({children})=>{
-    const initialState={notify:{},auth:{}}
-    const [state,dispatch]=useReducer(reducers,initialState)
+
+
+
     return (
         <DataContext.Provider value={[state,dispatch]}>
             {children}
@@ -57,6 +37,4 @@ export const DataProvider=({children})=>{
         </DataContext.Provider>
     )
 }
->>>>>>> oanh
-=======
->>>>>>> oanh
+

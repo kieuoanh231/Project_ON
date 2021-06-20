@@ -1,20 +1,13 @@
-<<<<<<< HEAD
-import Link from "next/link";
-import React, { useContext } from 'react'
-import { DataContext } from '../store/GlobalState'
-function NavBar() {
-
-  const {state, dispatch} = useContext(DataContext);
-  // const { cart } = state
-=======
 import React, { useContext, userContex } from "react";
 import Link from "next/link";
 import { DataContext } from "../store/GlobalState";
 
 function NavBar() {
   const [ state, dispatch ] = useContext(DataContext);
-  console.log(state);
+  console.log(state.length);
   const {auth} = state;
+  // const {cart} = state.length
+  // const {cart} = state.cart;
   const loggedRouter = () => {
     return (
       <div id="header_ac" className="dropdown">
@@ -35,7 +28,6 @@ function NavBar() {
     );
   };
 
->>>>>>> oanh
   return (
     <header>
       <div className="container">
