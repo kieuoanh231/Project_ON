@@ -50,7 +50,7 @@ const register = async (req, res) => {
     });
 
     await user.save();
-    res.status(400).json({ err: "Register Success." });
+    res.status(400).json({ err: null });
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }

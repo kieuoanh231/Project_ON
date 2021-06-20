@@ -407,7 +407,7 @@ button.list-group-item:hover {
   font-size: 14px;
 }
 
-#content form .form-group {
+#content form .required {
   padding-bottom: 40px;
 }
 
@@ -455,3 +455,4 @@ input[type=checkbox], input[type=radio] {
 #account-register ul.breadcrumb li a{
  text-decoration: none;
 }
+

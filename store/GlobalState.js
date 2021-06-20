@@ -2,6 +2,7 @@ import { useReducer , useEffect} from "react";
 import { createContext } from "react";
 import reducers from "./Reducers";
 
+<<<<<<< HEAD
 export const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const initialState = { notify: {}, auth: {}, cart:[] };
@@ -13,3 +14,17 @@ export const DataProvider = ({ children }) => {
     </DataContext.Provider>
   );
 };
+=======
+export const DataContext=createContext()
+export const DataProvider=({children})=>{
+    const initialState={notify:{},auth:{}}
+    const [state,dispatch]=useReducer(reducers,initialState)
+    return (
+        <DataContext.Provider value={[state,dispatch]}>
+            {children}
+            {console.log(children)}
+            
+        </DataContext.Provider>
+    )
+}
+>>>>>>> oanh
