@@ -18,7 +18,7 @@ function Register() {
 
   const display={display:"none"}
 
-  const [state, dispatch] = useContext(DataContext);
+  const {state, dispatch} = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
   const [show, setShow] = useState(display);
   const { firstname, lastname, email, password, cf_password, phone, address } =
@@ -50,7 +50,7 @@ function Register() {
       address: "",
     });
 
-console.log(state)
+// console.log(show.display)
     //   useEffect(() => {
     //     if (res.err=="") {
     //       router.push("/login");
