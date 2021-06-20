@@ -44,7 +44,7 @@ function NavBar() {
                 </Link>
                 <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
                   <li>
-                    <Link href="/signup">Register</Link>
+                    <Link href="/register">Register</Link>
                   </li>
                   <li>
                     <Link href="/login">Login</Link>

@@ -23,34 +23,14 @@ const register = async (req, res) => {
       phone,
       address,
     } = req.body;
-    const errMsg = valid(
-      firstname,
-      lastname,
-      email,
-      password,
-      cf_password,
-      phone,
-      address
-    );
 
     const oldUser = await User.findOne({ email });
-    if (oldUser)
-      return res.status(400).json({ err: "This email already exists." });
+    if (!oldUser) return res.status(400).json({ err: "This user does not exists." });
 
-    if (errMsg) return res.status(400).json({ err: errMsg });
-    const passwordHash = await bcrypt.hash(password, 12);
-    const user = new User({
-      firstname,
-      lastname,
-      email,
-      password: passwordHash,
-      cf_password,
-      phone,
-      address,
-    });
-
-    await user.save();
-    res.status(400).json({ err: "Register Success." });
+      const isMatch=await bcrypt.compare(password,oldUser.password)
+      if(!isMatch) return res.status(400).json({ err: "Incorrect password." });
+    
+    res.json({ msg: "Register Success" });
   } catch (err) {
     return res.status(500).json({ err: err.message });
   }
