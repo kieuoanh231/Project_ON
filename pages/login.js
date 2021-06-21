@@ -2,8 +2,8 @@ import SignIn from "../components/Login";
 const Login = () => {
   return (
     <>
-      <div id="account-login" class="container">
-        <ul class="breadcrumb">
+      <div id="account-login" className="container">
+        <ul className="breadcrumb">
           <li>
             <a href="/">
               Home / 
@@ -18,17 +18,17 @@ const Login = () => {
             </a>
           </li>
         </ul>
-        <div class="row">
-          <aside id="column-left" class="col-sm-3 hidden-xs">
-            <div class="account-content">
-              <div class="box-content">
-                <div class="list-group">
-                  <h3 class="toggled">Account</h3>
-                  <ul class="list-unstyled">
+        <div className="row">
+          <aside id="column-left" className="col-sm-3 hidden-xs">
+            <div className="account-content">
+              <div className="box-content">
+                <div className="list-group">
+                  <h3 className="toggled">Account</h3>
+                  <ul className="list-unstyled">
                     <li>
                       <a
                         href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/login"
-                        class="list-group-item"
+                        className="list-group-item"
                       >
                         Login
                       </a>
@@ -36,7 +36,7 @@ const Login = () => {
                     <li>
                       <a
                         href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register"
-                        class="list-group-item"
+                        className="list-group-item"
                       >
                         Register
                       </a>
@@ -44,7 +44,7 @@ const Login = () => {
                     <li>
                       <a
                         href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/forgotten"
-                        class="list-group-item"
+                        className="list-group-item"
                       >
                         Forgotten Password
                       </a>
@@ -52,7 +52,7 @@ const Login = () => {
                     <li>
                       <a
                         href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/account"
-                        class="list-group-item"
+                        className="list-group-item"
                       >
                         My Account
                       </a>
@@ -60,7 +60,7 @@ const Login = () => {
                     <li>
                       <a
                         href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/address"
-                        class="list-group-item"
+                        className="list-group-item"
                       >
                         Address Book
                       </a>
@@ -68,7 +68,7 @@ const Login = () => {
                     <li>
                       <a
                         href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/wishlist"
-                        class="list-group-item"
+                        className="list-group-item"
                       >
                         Wish List
                       </a>
@@ -76,7 +76,7 @@ const Login = () => {
                     <li>
                       <a
                         href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/order"
-                        class="list-group-item"
+                        className="list-group-item"
                       >
                         Order History
                       </a>
@@ -84,7 +84,7 @@ const Login = () => {
                     <li>
                       <a
                         href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/download"
-                        class="list-group-item"
+                        className="list-group-item"
                       >
                         Downloads
                       </a>
@@ -95,10 +95,10 @@ const Login = () => {
             </div>
           </aside>
 
-          <div id="content" class="col-sm-9">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="well">
+          <div id="content" className="col-sm-9">
+            <div className="row">
+              <div className="col-sm-6">
+                <div className="well">
                   <h2>New Customer</h2>
                   <p>
                     <strong>Register Account</strong>
@@ -110,13 +110,13 @@ const Login = () => {
                   </p>
                   <a
                     href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                   >
                     Continue
                   </a>
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div className="col-sm-6">
                 <SignIn></SignIn>
               </div>
             </div>

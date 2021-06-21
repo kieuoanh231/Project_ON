@@ -10,7 +10,7 @@ function Login() {
     password: "",
   };
 
-  const {state, dispatch} = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
   const { email, password } = userData;
   const [message, setMes] = useState();
@@ -47,24 +47,24 @@ function Login() {
   };
   return (
     <>
-      <div class="well">
+      <div className="well">
         <h2>Returning Customer</h2>
         <p>
           <strong>I am a returning customer</strong>
         </p>
         {message && (
-          <div class="alert alert-info" role="alert">
+          <div className="alert alert-info" role="alert">
             {message}
           </div>
         )}
 
         <form
           method="post"
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
           onSubmit={handleSubmit}
         >
-          <div class="form-group">
-            <label class="control-label" for="input-email">
+          <div className="form-group">
+            <label className="control-label" htmlFor="input-email">
               E-Mail Address
             </label>
             <input
@@ -74,11 +74,11 @@ function Login() {
               onChange={handleChangeInput}
               placeholder="E-Mail Address"
               id="input-email"
-              class="form-control"
+              className="form-control"
             />
           </div>
-          <div class="form-group">
-            <label class="control-label" for="input-password">
+          <div className="form-group">
+            <label className="control-label" htmlFor="input-password">
               Password
             </label>
             <input
@@ -88,11 +88,11 @@ function Login() {
               onChange={handleChangeInput}
               placeholder="Password"
               id="input-password"
-              class="form-control"
+              className="form-control"
             />
             {/* <a href="/">Forgotten Password</a> */}
           </div>
-          <input type="submit" value="Login" class="btn btn-primary" />
+          <input type="submit" value="Login" className="btn btn-primary" />
         </form>
       </div>
     </>

@@ -36,4 +36,23 @@ function validateEmail(email) {
   return re.test(email);
 }
 
+export const validEditProfile = (
+  firstname,
+  lastname,
+  email,
+  phone
+) => {
+  if (!firstname || !lastname || !email || !phone) {
+    return "Please add all fields ";
+  }
+
+  if (!validateEmail(email)) {
+    return "Invalid email";
+  }
+
+  if (phone.length != 10) {
+    return phone
+  }
+};
+
 export default valid;

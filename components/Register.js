@@ -61,8 +61,8 @@ function Register() {
 
   return (
     <>
-      <div id="content" class="col-sm-9">
-        <h1 class="page_title">Register Account</h1>
+      <div id="content" className="col-sm-9">
+        <h1 className="page_title">Register Account</h1>
         <p>
           If you already have an account with us, please login at the{" "}
           <a href="/login">
@@ -72,91 +72,91 @@ function Register() {
         </p>
         <form
           method="post"
-          enctype="multipart/form-data"
-          class="form-horizontal"
+          encType="multipart/form-data"
+          className="form-horizontal"
           onSubmit={handleSubmit}
         >
           <fieldset id="account">
             <legend>Your Personal Details</legend>
-            <div class="alert alert-info" role="alert" style={{display:show.display}}>
+            <div className="alert alert-info" role="alert" style={{display:show.display}}>
               {message}
             </div>
 
-            <div class="form-group required">
-              <label class="col-sm-2 control-label" for="input-firstname">
+            <div className="form-group required">
+              <label className="col-sm-2 control-label" for="input-firstname">
                 First Name
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <input
                   type="text"
                   name="firstname"
                   placeholder="First Name"
                   id="input-firstname"
-                  class="form-control"
+                  className="form-control"
                   value={firstname}
                   onChange={handleChangeInput}
                 />
               </div>
             </div>
-            <div class="form-group required">
-              <label class="col-sm-2 control-label" for="input-lastname">
+            <div className="form-group required">
+              <label className="col-sm-2 control-label" for="input-lastname">
                 Last Name
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <input
                   type="text"
                   name="lastname"
                   placeholder="Last Name"
                   id="input-lastname"
-                  class="form-control"
+                  className="form-control"
                   value={lastname}
                   onChange={handleChangeInput}
                 />
               </div>
             </div>
-            <div class="form-group required">
-              <label class="col-sm-2 control-label" for="input-email">
+            <div className="form-group required">
+              <label className="col-sm-2 control-label" for="input-email">
                 E-Mail
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <input
                   type="email"
                   name="email"
                   placeholder="E-Mail"
                   id="input-email"
-                  class="form-control"
+                  className="form-control"
                   value={email}
                   onChange={handleChangeInput}
                 />
               </div>
             </div>
-            <div class="form-group required">
-              <label class="col-sm-2 control-label" for="input-telephone">
+            <div className="form-group required">
+              <label className="col-sm-2 control-label" for="input-telephone">
                 Telephone
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <input
                   type="tel"
                   name="phone"
                   placeholder="Numberphone"
                   id="input-telephone"
-                  class="form-control"
+                  className="form-control"
                   value={phone}
                   onChange={handleChangeInput}
                 />
               </div>
             </div>
-            <div class="form-group required">
-              <label class="col-sm-2 control-label" for="input-address">
+            <div className="form-group required">
+              <label className="col-sm-2 control-label" for="input-address">
                 Address
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <input
                   type="tel"
                   name="address"
                   placeholder="Address"
                   id="input-address"
-                  class="form-control"
+                  className="form-control"
                   value={address}
                   onChange={handleChangeInput}
                 />
@@ -165,51 +165,51 @@ function Register() {
           </fieldset>
           <fieldset>
             <legend>Your Password</legend>
-            <div class="form-group required">
-              <label class="col-sm-2 control-label" for="input-password">
+            <div className="form-group required">
+              <label className="col-sm-2 control-label" for="input-password">
                 Password
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <input
                   type="password"
                   name="password"
                   placeholder="Password"
                   id="input-password"
-                  class="form-control"
+                  className="form-control"
                   value={password}
                   onChange={handleChangeInput}
                 />
               </div>
             </div>
-            <div class="form-group required">
-              <label class="col-sm-2 control-label" for="input-confirm">
+            <div className="form-group required">
+              <label className="col-sm-2 control-label" for="input-confirm">
                 Password Confirm
               </label>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                 <input
                   type="password"
                   name="cf_password"
                   placeholder="Password Confirm"
                   id="input-confirm"
-                  class="form-control"
+                  className="form-control"
                   value={cf_password}
                   onChange={handleChangeInput}
                 />
               </div>
             </div>
           </fieldset>
-          <div class="buttons">
-            <div class="text-right">
+          <div className="buttons">
+            <div className="text-right">
               I have read and agree to the{" "}
               <a
                 href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=information/information/agree&amp;information_id=3"
-                class="agree"
+                className="agree"
               >
                 <b>Privacy Policy</b>
               </a>
               <input type="checkbox" name="agree" value="1" />
               &nbsp;
-              <input type="submit" value="Continue" class="btn btn-primary" />
+              <input type="submit" value="Continue" className="btn btn-primary" />
             </div>
           </div>
         </form>
