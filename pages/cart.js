@@ -9,7 +9,6 @@ const Cart = () => {
   const { state, dispatch } = useContext(DataContext);
   const { cart, auth } = state;
   const [total, setTotal] = useState(0)
-  const [callback, setCallback] = useState(false)
   // get price total
   useEffect(() => {
     const getTotal = () => {
@@ -22,27 +21,6 @@ const Cart = () => {
 
     getTotal()
   },[cart])
-  // update cart state after change in database
-  useEffect(() => {
-    const cartLocal = JSON.parse(localStorage.getItem('on__cart'))
-    if(cartLocal && cartLocal.length > 0){
-      let newArr = []
-      const updateCart = async () => {
-        for (const item of cartLocal){
-          const res = await getData(`product/${item._id}`)
-          const { _id, title, images, price, inStock, sold } = res.product
-          if(inStock > 0){
-            newArr.push({ 
-              _id, title, images, price, inStock, sold,
-              quantity: item.quantity > inStock ? 1 : item.quantity
-            })
-          }
-        }
-        dispatch({ type: 'ADD_CART', payload: newArr })
-      }
-      updateCart()
-    } 
-  },[callback]);
   
   return (
     <>

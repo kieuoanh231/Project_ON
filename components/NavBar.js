@@ -9,11 +9,10 @@ function NavBar() {
   const router = useRouter();
   const [isSticky, setSticky] = useState(false);
   const ref = useRef(null);
+
   const handleScroll = () => {
     if (ref.current) {
-      console.log(ref.current.getBoundingClientRect().top)
-      console.log(ref.current.getBoundingClientRect().top <= 5);
-      setSticky(ref.current.getBoundingClientRect().top <= 0);
+      setSticky(ref.current.getBoundingClientRect().top <= 0); // get bounding of element
     }
   };
   useEffect(() => {
@@ -56,7 +55,7 @@ function NavBar() {
     <header>
       <div className="container">
         <div className="header-top">
-          <div className="header-left hidden-sm hidden-xs">
+          <div className="header-left d-none d-sm-block">
             <div className="contact">
               <a>
                 <i className="fas fa-phone-alt" aria-hidden="true"></i>
@@ -150,7 +149,7 @@ function NavBar() {
         <i className="fas fa-times icon-close" aria-hidden="true"></i>
       </div>
       <hr />
-      <div className={`header-bottom sticky-wrapper${isSticky ? ' sticky' : ''}`} ref={ref}>
+      <div className={`header-bottom d-none d-sm-block sticky-wrapper${isSticky ? ' sticky' : ''}`} ref={ref}>
       <div className={`sticky-inner`} >
         <div className="container">
           <nav className="navbar navbar-expand-sm">

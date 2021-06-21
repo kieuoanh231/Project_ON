@@ -39,10 +39,29 @@ label {
   font-weight: normal;
 }
 .load-more .btn-primary:hover,
+.load-more .btn-primary:checked,
 .pull-right .btn-primary:hover,
 .pull-left .btn-primary:hover,
-#button-cart:hover {
+#button-cart:hover,
+.modal-footer .btn-primary:hover, a:focus {
   border: 2px black solid;
   color: black;
   background: white;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  border: 2px black solid !important;
+  color: black !important;
+  background: white !important;
+}
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: none !important;
+}
+.btn-primary.focus, .btn-primary:focus {
+  border: 2px black solid !important;
+  color: black !important;
+  background: white !important;
+  box-shadow: none !important;
 }

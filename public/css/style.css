@@ -50,6 +50,7 @@ header {
 }
 
 .header-bottom {
+  height: 60px;
     text-align: center;
     border-top: 1px solid #e5e5e5;
 }
@@ -471,7 +472,7 @@ a:hover, .logout:hover{
 .sticky {
   position: sticky;
   top: 0;
-  z-index: 100; /* this is optional and should be different for every project */
+  z-index: 90;
 }
 .sticky-wrapper {
   position: relative;

@@ -34,9 +34,9 @@ const Home = (props) => {
           </div>
         </div>
         <div className="load-more">
-          {limit<products.length &&<button type="submit" onClick={handleClick} className="btn btn-primary">
+          {limit<products.length &&<div onClick={handleClick} className="btn btn-primary">
             Load more
-          </button>}
+          </div>}
         
         </div>
       </div>

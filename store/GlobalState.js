@@ -13,7 +13,6 @@ export const DataProvider = ({ children }) => {
     const firstLogin = localStorage.getItem("firstLogin");
     if (firstLogin) {
       getData("auth/accessToken").then((res) => {
-        // console.log(res.err);
         if (res.err) {
           return localStorage.removeItem("firstLogin");
         }

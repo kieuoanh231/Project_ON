@@ -37,7 +37,6 @@ function Register() {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
     const res = await postData("auth/signup", userData);
-    // console.log(res.msg);
     setShow({display:"block"})
     setMes(res.err);
     dispatch({ type: "NOTIFY", payload: { stop: true } });
@@ -50,13 +49,6 @@ function Register() {
       phone: "",
       address: "",
     });
-
-// console.log(show.display)
-    //   useEffect(() => {
-    //     if (res.err=="") {
-    //       router.push("/login");
-    //     }
-    //   }, [res.err]);
   };
 
   return (

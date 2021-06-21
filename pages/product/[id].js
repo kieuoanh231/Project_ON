@@ -66,7 +66,7 @@ const Detail = (props) => {
                 </li>
                 <li>
                   <span className="disc">Availability:</span>
-                  <span className="disc1"> In Stock</span>
+                  <span className="disc1"> {product.inStock}</span>
                 </li>
               </ul>
               <ul className="list-unstyled">
