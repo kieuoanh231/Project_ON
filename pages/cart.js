@@ -38,13 +38,12 @@ const Cart = () => {
             })
           }
         }
-
         dispatch({ type: 'ADD_CART', payload: newArr })
       }
-
       updateCart()
     } 
   },[callback]);
+  
   return (
     <>
     <Head><title>Cart</title></Head>
