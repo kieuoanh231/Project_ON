@@ -202,7 +202,7 @@ function Register() {
             <div class="text-right">
               I have read and agree to the{" "}
               <a
-                href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=information/information/agree&amp;information_id=3"
+                href=""
                 class="agree"
               >
                 <b>Privacy Policy</b>

@@ -1,5 +1,6 @@
 /* Footer */
 footer {
+    flex-direction: column;
     margin-top: 50px;
     background: #222222;
     display: flex;
@@ -74,12 +75,14 @@ footer {
     padding: 10px;
     text-align: center;
     color: #777777;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   
   footer .footer_bottom p a {
     text-decoration: none;
   }
-  
+
   /* newsletter block */
   
   .subscribe-form {

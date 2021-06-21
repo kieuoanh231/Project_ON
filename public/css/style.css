@@ -272,6 +272,7 @@ hr {
 }
 #header_cart{
   position: relative;
+  cursor: pointer;
 }
 
 #header_cart .cart-length{
@@ -456,3 +457,15 @@ input[type=checkbox], input[type=radio] {
  text-decoration: none;
 }
 
+.my-alert{
+  top:0;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  text-align: center;
+}
+a:hover{
+  text-decoration: none;
+  color: black;
+
+}

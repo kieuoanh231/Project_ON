@@ -1,14 +1,17 @@
-import Product from "../../components/ProductItem";
 import { getData } from "../../utils/fetchData";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import SliderVertical from "../../components/SliderVertical";
 import dynamic from "next/dynamic"
 import Slider from "../../components/Slider";
-
+import { DataContext } from "../../store/GlobalState";
+import { addToCart } from "../../store/Actions";
 const Detail = (props) => {
 
   const [product] = useState(props.product)
+
+  const {state, dispatch} = useContext(DataContext)
+  const {cart} = state
   
   return (
     <div id="product-page" className="container">
@@ -84,27 +87,6 @@ const Detail = (props) => {
               </ul>
               <div id="product" className="product-options">
                 <div className="form-group">
-                  <label className="control-label qty" htmlFor="input-quantity">
-                    Qty
-                  </label>
-                  <div className="product-btn-quantity">
-                    <div className="minus-plus">
-                      <button className="minus">
-                        <i aria-hidden className="fa fa-minus"></i>
-                      </button>
-                      <input
-                        type="text"
-                        name="quantity"
-                        defaultValue="1"
-                        size="2"
-                        id="input-quantity"
-                        className="form-control"
-                      />
-                      <button className="plus">
-                        <i aria-hidden className="fa fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
 
                   <div className="btn-group">
                     <button
@@ -112,6 +94,7 @@ const Detail = (props) => {
                       id="button-cart"
                       data-loading-text="Loading..."
                       className="btn btn-primary btn-lg btn-block"
+                      onClick= {()=>dispatch(addToCart(product,cart)) }
                     >
                       Add to Cart
                     </button>

@@ -64,7 +64,7 @@ function Login() {
           onSubmit={handleSubmit}
         >
           <div class="form-group">
-            <label class="control-label" for="input-email">
+            <label class="control-label" htmlFor="input-email">
               E-Mail Address
             </label>
             <input
@@ -78,7 +78,7 @@ function Login() {
             />
           </div>
           <div class="form-group">
-            <label class="control-label" for="input-password">
+            <label class="control-label" htmlFor="input-password">
               Password
             </label>
             <input

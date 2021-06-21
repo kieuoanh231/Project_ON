@@ -3,11 +3,9 @@ import Link from "next/link";
 import { DataContext } from "../store/GlobalState";
 
 function NavBar() {
-  const {state, dispatch} = useContext(DataContext);
-  console.log(state);
-  const {cart,auth} = state;
-  // const {cart} = state.length
-  // const {cart} = state.cart;
+  const { state, dispatch } = useContext(DataContext);
+  const { cart, auth } = state;
+
   const loggedRouter = () => {
     return (
       <div id="header_ac" className="dropdown">
@@ -46,8 +44,9 @@ function NavBar() {
 
           <div className="header-center">
             <div id="logo">
-              <Link href="/">
+              <Link href="/" passHref={true}>
                 <img
+                style={{cursor:"pointer"}}
                   src="/images/logo.png"
                   title="Your Store"
                   alt="Your Store"
@@ -65,21 +64,21 @@ function NavBar() {
             </div>
 
             {Object.keys(auth).length === 0 ? (
-            <div id="header_ac" className="dropdown">
-              <span>
-                <Link href="#" title="My Account" data-toggle="dropdown">
-                  <i className="fas fa-user" aria-hidden="true"></i>
-                </Link>
-                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                  <li>
-                    <Link href="/register">Register</Link>
-                  </li>
-                  <li>
-                    <Link href="/login">Login</Link>
-                  </li>
-                </ul>
-              </span>
-            </div>
+              <div id="header_ac" className="dropdown">
+                <span>
+                  <Link href="/" title="My Account" data-toggle="dropdown">
+                    <i className="fas fa-user" aria-hidden="true"></i>
+                  </Link>
+                  <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
+                    <li>
+                      <Link href="/register">Register</Link>
+                    </li>
+                    <li>
+                      <Link href="/login">Login</Link>
+                    </li>
+                  </ul>
+                </span>
+              </div>
             ) : (
               loggedRouter()
             )}
@@ -99,23 +98,19 @@ function NavBar() {
                 </ul>
               </span>
             </div> */}
-
-            <div id="header_cart">
-              <span>
-                <Link href="/cart" title="Cart" data-toggle="dropdown">
+            <Link href="/cart" passHref={true}>
+              <div id="header_cart">
+                <span>
                   <>
-                  <i className="cart-icon fas fa-shopping-cart" aria-hidden="true">
-                  </i>
-                  <span className="cart-length">{cart.length}</span>
+                    <i
+                      className="cart-icon fas fa-shopping-cart"
+                      aria-hidden="true"
+                    ></i>
+                    <span className="cart-length">{cart.length}</span>
                   </>
-                </Link>
-                {/* <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                  <li className="text-center product-cart-empty">
-                    Your shopping cart is empty!
-                  </li>
-                </ul> */}
-              </span>
-            </div>
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
