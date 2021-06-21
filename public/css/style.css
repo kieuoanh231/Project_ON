@@ -464,8 +464,7 @@ input[type=checkbox], input[type=radio] {
   z-index: 99;
   text-align: center;
 }
-a:hover{
+a:hover, .logout:hover{
   text-decoration: none;
   color: black;
-
 }

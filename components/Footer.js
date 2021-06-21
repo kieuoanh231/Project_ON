@@ -4,7 +4,7 @@ function Footer() {
     <footer className="mt-80">
       <div className="container">
         <div className="footer-top">
-          <div className="col-sm-3">
+          <div className="col-xl-3 col-sm-3">
             <div className="position-footer-left">
               <h5 className="toggled title">contact info</h5>
               <ul className="list-unstyled">
@@ -41,7 +41,7 @@ function Footer() {
               </ul>
             </div>
           </div>
-          <div className="col-sm-3">
+          <div className="col-xl-3 col-sm-3">
             <div className="footer-content">
               <h5>Information</h5>
               <ul className="list-unstyled">
@@ -63,7 +63,7 @@ function Footer() {
               </ul>
             </div>
           </div>
-          <div className="col-sm-3">
+          <div className="col-xl-3 col-sm-3">
             <div className="footer-content">
               <h5>My Account</h5>
               <ul className="list-unstyled">
@@ -85,7 +85,7 @@ function Footer() {
               </ul>
             </div>
           </div>
-          <div className="col-sm-3">
+          <div className="col-xl-3 col-sm-3">
             <div className="position-footer-right">
               <div className="news">
                 <div className="newsletterblock">

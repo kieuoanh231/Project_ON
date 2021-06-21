@@ -22,15 +22,15 @@ function NavBar() {
     return (
       <div id="header_ac" className="dropdown">
         <span>
-          <Link href="#" title="My Account" data-toggle="dropdown">
+          <Link href="/" title="My Account" data-toggle="dropdown">
             <i className="fas fa-user" aria-hidden="true"></i>
           </Link>
           <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
             <li>
-              <Link href="#">Profile</Link>
+              <Link href="/">Profile</Link>
             </li>
             <li>
-              <div onClick={handleLogout}>Logout</div>
+              <div className="logout" onClick={handleLogout}>Logout</div>
             </li>
           </ul>
         </span>
@@ -94,22 +94,6 @@ function NavBar() {
             ) : (
               loggedRouter()
             )}
-
-            {/* <div id="header_ac" className="dropdown">
-              <span>
-                <Link href="#" title="My Account" data-toggle="dropdown">
-                  <i className="fas fa-user" aria-hidden="true"></i>
-                </Link>
-                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                  <li>
-                    <Link href="/register">Register</Link>
-                  </li>
-                  <li>
-                    <Link href="/login">Login</Link>
-                  </li>
-                </ul>
-              </span>
-            </div> */}
             <Link href="/cart" passHref={true}>
               <div id="header_cart">
                 <span>
@@ -160,7 +144,7 @@ function NavBar() {
                 className="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
+                data-bs-target="/navbarNavDropdown"
                 aria-controls="navbarNavDropdown"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
@@ -173,27 +157,27 @@ function NavBar() {
               >
                 <ul className="navbar-nav mx-auto">
                   <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">
+                    <a className="nav-link active" aria-current="page" href="/">
                       Home
                     </a>
                   </li>
                   <li className="nav-item mx-1">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/">
                       Jacket
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/">
                       Unisex Jacket
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/">
                       Blogs
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/">
                       Blogs
                     </a>
                   </li>

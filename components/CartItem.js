@@ -12,7 +12,6 @@ const CartItem = ({ item, dispatch, cart }) => {
             src={item.images[0].url}
             alt={item.title}
             title={item.title}
-            className="img-thumbnail"
           />
         </Link>
       </td>

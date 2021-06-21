@@ -37,7 +37,6 @@ const Detail = (props) => {
                     className="slick-carousel clearfix"
                   >
                    <SliderVertical images={product.images}></SliderVertical>
-                  
                   </div>
                 </div>
                 <div className="pro-image">
@@ -61,15 +60,6 @@ const Detail = (props) => {
               <h1 className="">{product.title}</h1>
 
               <ul className="list-unstyled">
-                {/* <li>
-                  <span className="disc">Category:</span>{" "}
-                  <a
-                    className="disc1"
-                    href=""
-                  >
-                    {product.category}
-                  </a>
-                </li> */}
                 <li>
                   <span className="disc">Product Code:</span>
                   <span className="disc1"> {product._id}</span>
@@ -94,8 +84,7 @@ const Detail = (props) => {
                       id="button-cart"
                       data-loading-text="Loading..."
                       className="btn btn-primary btn-lg btn-block"
-                      onClick= {()=>dispatch(addToCart(product,cart)) }
-                    >
+                      onClick= {()=>dispatch(addToCart(product,cart)) }>
                       Add to Cart
                     </button>
                   </div>
@@ -132,7 +121,6 @@ const Detail = (props) => {
                   className="box-product  product-carousel  clearfix"
                   data-items="4"
                 >
-                  {/* <Product /> */}
                 </div>
               </div>
             </div>
