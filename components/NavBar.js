@@ -1,21 +1,35 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { DataContext } from "../store/GlobalState";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
-
 function NavBar() {
   const { state, dispatch } = useContext(DataContext);
   const { cart, auth } = state;
   const router = useRouter();
+  const [isSticky, setSticky] = useState(false);
+  const ref = useRef(null);
+  const handleScroll = () => {
+    if (ref.current) {
+      console.log(ref.current.getBoundingClientRect().top)
+      console.log(ref.current.getBoundingClientRect().top <= 5);
+      setSticky(ref.current.getBoundingClientRect().top <= 0);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
 
+    return () => {
+      window.removeEventListener('scroll', () => handleScroll);
+    };
+  }, []);
+  
   const handleLogout = () => {
     Cookies.remove("refreshtoken", { path: "api/auth/accessToken" });
     localStorage.removeItem("firstLogin");
     dispatch({ type: "AUTH", payload: {} });
     console.log("Logged out!");
     router.push("/login");
-    // dispatch({type:'NOTIFY',payload:{msg:"Logged out!"}})
   };
 
   const loggedRouter = () => {
@@ -136,7 +150,8 @@ function NavBar() {
         <i className="fas fa-times icon-close" aria-hidden="true"></i>
       </div>
       <hr />
-      <div className="header-bottom">
+      <div className={`header-bottom sticky-wrapper${isSticky ? ' sticky' : ''}`} ref={ref}>
+      <div className={`sticky-inner`} >
         <div className="container">
           <nav className="navbar navbar-expand-sm">
             <div className="mx-auto container-fluid">
@@ -187,7 +202,8 @@ function NavBar() {
           </nav>
         </div>
       </div>
-    </header>
+      </div>
+   </header>
   );
 }
 

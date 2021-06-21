@@ -3,7 +3,12 @@ import React from "react";
 import Footer from "./Footer";
 import Notify from './Notify';
 import Modal from "./Modal";
+import ScrollToTop from "./ScrollToTop";
+
 function Layout({ children }) {
+
+ 
+
   return (
     <>
    <Modal/>
@@ -16,6 +21,7 @@ function Layout({ children }) {
       <div>
         <Footer />
       </div>
+      <ScrollToTop></ScrollToTop>
     </>
   );
 }

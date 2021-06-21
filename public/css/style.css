@@ -49,10 +49,10 @@ header {
   justify-content: space-between;
 }
 
-/* .header-bottom {
+.header-bottom {
     text-align: center;
     border-top: 1px solid #e5e5e5;
-} */
+}
 
 /* contact */
 
@@ -467,4 +467,21 @@ input[type=checkbox], input[type=radio] {
 a:hover, .logout:hover{
   text-decoration: none;
   color: black;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* this is optional and should be different for every project */
+}
+.sticky-wrapper {
+  position: relative;
+}
+
+.sticky .sticky-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: white;
 }
