@@ -11,17 +11,20 @@ export const DataProvider = ({ children }) => {
   const {cart} = state
   useEffect(() => {
     const firstLogin = localStorage.getItem("firstLogin");
-    if(firstLogin){
-        getData('auth/accessToken').then(res => {
-            if(res.err) return localStorage.removeItem("firstLogin")
-            dispatch({ 
-                type: "AUTH",
-                payload: {
-                    token: res.access_token,
-                    user: res.user
-                }
-            })
-        })
+    if (firstLogin) {
+      getData("auth/accessToken").then((res) => {
+        // console.log(res.err);
+        if (res.err) {
+          return localStorage.removeItem("firstLogin");
+        }
+        dispatch({
+          type: "AUTH",
+          payload: {
+            toke: res.accessToken,
+            user: res.user,
+          },
+        });
+      });
     }
 },[])
 

@@ -4,6 +4,7 @@ import { getData } from "../utils/fetchData";
 import { useState } from "react";
 
 import Head from "next/head";
+
 const Home = (props) => {
   const [products, setProducts] = useState(props.products);
   return (

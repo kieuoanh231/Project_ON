@@ -1,10 +1,22 @@
-import React, { useContext, userContex } from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { DataContext } from "../store/GlobalState";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 function NavBar() {
   const { state, dispatch } = useContext(DataContext);
   const { cart, auth } = state;
+  const router = useRouter();
+
+  const handleLogout = () => {
+    Cookies.remove("refreshtoken", { path: "api/auth/accessToken" });
+    localStorage.removeItem("firstLogin");
+    dispatch({ type: "AUTH", payload: {} });
+    console.log("Logged out!");
+    router.push("/login");
+    // dispatch({type:'NOTIFY',payload:{msg:"Logged out!"}})
+  };
 
   const loggedRouter = () => {
     return (
@@ -18,7 +30,7 @@ function NavBar() {
               <Link href="#">Profile</Link>
             </li>
             <li>
-              <Link href="/">Logout</Link>
+              <div onClick={handleLogout}>Logout</div>
             </li>
           </ul>
         </span>
@@ -107,6 +119,7 @@ function NavBar() {
                       aria-hidden="true"
                     ></i>
                     <span className="cart-length">{cart.length}</span>
+
                   </>
                 </span>
               </div>
@@ -136,31 +149,6 @@ function NavBar() {
           </span>
         </div>
 
-        {/* <script type="text/javascript">
-                $('#mahardhiSearch .btn-search button').bind('click', function() {
-                    url = 'index.php?route=product/search';
-
-                    var search = $('#mahardhiSearch input[name=\'search\']').prop('defaultValue');
-                    if (search) {
-                        url += '&search=' + encodeURIComponent(search);
-                    }
-
-                    var category_id = $('#mahardhiSearch select[name=\'category_id\']').prop('defaultValue');
-                    if (category_id > 0) {
-                        url += '&category_id=' + encodeURIComponent(category_id);
-                        // url += '&sub_category=true';
-                        // url += '&description=true';
-                    }
-
-                    location = url;
-                });
-
-                $('#mahardhiSearch input[name=\'search\']').bind('keydown', function(e) {
-                    if (e.keyCode == 13) {
-                        $('#mahardhiSearch .btn-search button').trigger('click');
-                    }
-                });
-            </script> */}
         <i className="fas fa-times icon-close" aria-hidden="true"></i>
       </div>
       <hr />
