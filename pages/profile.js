@@ -63,7 +63,7 @@ const Profile = () => {
                   <ul className="list-unstyled">
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/login"
+                        href="/login"
                         className="list-group-item"
                       >
                         Login
@@ -71,7 +71,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register"
+                        href="/register"
                         className="list-group-item"
                       >
                         Register
@@ -79,7 +79,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/forgotten"
+                        href=""
                         className="list-group-item"
                       >
                         Forgotten Password
@@ -87,7 +87,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/account"
+                        href="/account"
                         className="list-group-item"
                       >
                         My Account
@@ -95,7 +95,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/address"
+                        href=""
                         className="list-group-item"
                       >
                         Address Book
@@ -103,7 +103,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/wishlist"
+                        href="/wishlist"
                         className="list-group-item"
                       >
                         Wish List
@@ -111,7 +111,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/order"
+                        href="/order"
                         className="list-group-item"
                       >
                         Order History
@@ -119,7 +119,7 @@ const Profile = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/download"
+                        href="/download"
                         className="list-group-item"
                       >
                         Downloads
