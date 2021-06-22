@@ -40,7 +40,7 @@ function NavBar() {
           </Link>
           <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
             <li>
-              <Link href="/">Profile</Link>
+              <Link href="/profile">Profile</Link>
             </li>
             <li>
               <div className="logout" onClick={handleLogout}>Logout</div>
