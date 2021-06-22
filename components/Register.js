@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from "react";
 import valid from "../utils/valid";
 import { postData } from "../utils/fetchData";
 import { DataContext } from "../store/GlobalState";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 function Register() {
   const initialState = {
@@ -16,20 +16,27 @@ function Register() {
     address: "",
   };
 
-  const display={display:"none"}
+  const display = { display: "none" };
 
-  const {state, dispatch} = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
   const [show, setShow] = useState(display);
-  const { firstname, lastname, email, password, cf_password, phone, address } =
-    userData;
+  const {
+    firstname,
+    lastname,
+    email,
+    password,
+    cf_password,
+    phone,
+    address,
+  } = userData;
   const [message, setMes] = useState();
-  // const router=useRouter()
+  const router = useRouter();
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
-    dispatch({ type: 'NOTIFY', payload: {} })
+    dispatch({ type: "NOTIFY", payload: {} });
   };
 
   const handleSubmit = async (e) => {
@@ -37,18 +44,14 @@ function Register() {
     dispatch({ type: "NOTIFY", payload: { loading: true } });
 
     const res = await postData("auth/signup", userData);
-    setShow({display:"block"})
-    setMes(res.err);
-    dispatch({ type: "NOTIFY", payload: { stop: true } });
-    setUserData({
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-      cf_password: "",
-      phone: "",
-      address: "",
-    });
+    if (res.err != null) {
+      setMes(res.err);
+      dispatch({ type: "NOTIFY", payload: { loading: false } });
+    } else {
+      setMes(res.err);
+      router.push("/login");
+      dispatch({ type: "NOTIFY", payload: { stop: true } });
+    }
   };
 
   return (
@@ -57,11 +60,13 @@ function Register() {
         <h1 className="page_title">Register Account</h1>
         <p>
           If you already have an account with us, please login at the{" "}
-          <a href="/login">
-            Login page
-          </a>
-          .
+          <a href="/login">Login page</a>.
         </p>
+        {message && (
+          <div className="alert alert-info" role="alert">
+            {message}
+          </div>
+        )}
         <form
           method="post"
           encType="multipart/form-data"
@@ -70,7 +75,11 @@ function Register() {
         >
           <fieldset id="account">
             <legend>Your Personal Details</legend>
-            <div className="alert alert-info" role="alert" style={{display:show.display}}>
+            <div
+              className="alert alert-info"
+              role="alert"
+              style={{ display: show.display }}
+            >
               {message}
             </div>
 
@@ -193,15 +202,16 @@ function Register() {
           <div className="buttons">
             <div className="text-right">
               I have read and agree to the{" "}
-              <a
-                href=""
-                class="agree"
-              >
+              <a href="" class="agree">
                 <b>Privacy Policy</b>
               </a>
               <input type="checkbox" name="agree" value="1" />
               &nbsp;
-              <input type="submit" value="Continue" className="btn btn-primary" />
+              <input
+                type="submit"
+                value="Continue"
+                className="btn btn-primary"
+              />
             </div>
           </div>
         </form>
