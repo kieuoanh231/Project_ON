@@ -9,7 +9,6 @@ function Login() {
     email: "",
     password: "",
   };
-
   const { state, dispatch } = useContext(DataContext);
   const [userData, setUserData] = useState(initialState);
   const { email, password } = userData;
