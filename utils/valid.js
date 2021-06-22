@@ -25,6 +25,7 @@ const valid = (
     return "Phone must 10 characters";
   }
 
+  
   if (password != cf_password) {
     return "Confirm password did not match";
   }

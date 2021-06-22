@@ -11,6 +11,7 @@ export default async (req, res) => {
     }
 };
 
+
 const editProfile = async (req, res) => {
     try {
         const { _id, email, phone, firstname, lastname } = req.body;
