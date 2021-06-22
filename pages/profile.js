@@ -217,7 +217,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <div className="form-group required">
-                  <label className="col-sm-2 control-label" for="input-address">
+                  <label className="col-sm-2 control-label" htmlFor="input-address">
                     Address
                   </label>
                   <div className="col-sm-10">
