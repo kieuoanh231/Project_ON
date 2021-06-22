@@ -54,17 +54,6 @@ const Profile = () => {
   return (
     <>
       <div id="account-login" className="container">
-        <ul className="breadcrumb">
-          <li>
-            <a href="/">Home / </a>
-          </li>
-          <li>
-            <a href="/"> Account / </a>
-          </li>
-          <li>
-            <a href="/signin"> Login</a>
-          </li>
-        </ul>
         <div className="row">
           <aside id="column-left" className="col-sm-3 hidden-xs">
             <div className="account-content">
