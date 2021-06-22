@@ -13,6 +13,12 @@ export const SliderVertical = (props) => {
   });
   return (
     <>
+    {slider && (
+        <>
+          <ArrowUp onClick={(e) => e.stopPropagation() || slider.prev()} />
+         
+        </>
+      )}
     <div className="navigation-wrapper">
       <div ref={sliderRef} className="keen-slider">
         {images.map((image) => {
@@ -31,14 +37,13 @@ export const SliderVertical = (props) => {
         })
         }
       </div>
+      
+      </div>
       {slider && (
         <>
-          <ArrowUp onClick={(e) => e.stopPropagation() || slider.prev()} />
           <ArrowDown onClick={(e) => e.stopPropagation() || slider.next()} />
         </>
       )}
-      </div>
-      
     </>
   );
 };

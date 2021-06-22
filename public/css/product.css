@@ -370,7 +370,6 @@ a.thumbnail {
 
 #product-page .product-additional {
     text-align: center;
-    position: relative;
     max-width: 80px;
     width: 100%;
     float: left;
@@ -540,6 +539,7 @@ a.thumbnail {
 }
 
 .minus-plus>* {
+
     text-align: center;
     border: none;
     background: transparent;
@@ -549,10 +549,19 @@ a.thumbnail {
     height: 38px;
 }
 
-.product-btn-quantity #input-quantity {
+.product-btn-quantity .input-quantity {
     width: 44px;
+    pointer-events: none;
 }
-
+.product-btn-quantity  .form-control[readonly]{
+    background: none;
+    opacity: 1;
+}
+.product-btn-quantity .minus-plus .delete{
+    background: #c9302c;
+    color: white;
+    width: 55px;
+}
 .right_info .control-label.qty {
     margin: 0 0 10px 0;
     display: block;

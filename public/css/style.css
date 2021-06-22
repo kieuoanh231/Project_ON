@@ -49,10 +49,11 @@ header {
   justify-content: space-between;
 }
 
-/* .header-bottom {
-    text-align: center;
-    border-top: 1px solid #e5e5e5;
-} */
+.header-bottom {
+  height: 60px;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
 
 /* contact */
 
@@ -258,7 +259,6 @@ header {
   margin-right: 30px;
 }
 
-
 hr {
   margin-top: 0;
   margin-bottom: 0;
@@ -270,11 +270,12 @@ hr {
   transition: all 1s ease;
   z-index: 1;
 }
-#header_cart{
+#header_cart {
   position: relative;
+  cursor: pointer;
 }
 
-#header_cart .cart-length{
+#header_cart .cart-length {
   font-size: 10px;
   right: -10px;
   top: -10px;
@@ -402,7 +403,7 @@ button.list-group-item:hover {
   cursor: pointer;
 }
 
-.well .form-group a{
+.well .form-group a {
   text-decoration: none;
   font-size: 14px;
 }
@@ -418,12 +419,12 @@ legend {
 }
 
 div.required .control-label:before {
-  content: '* ';
-  color: #F00;
+  content: "* ";
+  color: #f00;
   font-weight: bold;
 }
 
-.buttons b{
+.buttons b {
   margin-right: 5px;
 }
 .radio-inline {
@@ -432,12 +433,14 @@ div.required .control-label:before {
   margin-bottom: 0;
 }
 
-.checkbox-inline, .radio-inline {
+.checkbox-inline,
+.radio-inline {
   margin-top: 0;
   margin-left: 10px;
 }
 
-input[type=checkbox], input[type=radio] {
+input[type="checkbox"],
+input[type="radio"] {
   margin: 0 7px;
   margin-top: 1px\9;
   line-height: normal;
@@ -452,11 +455,40 @@ input[type=checkbox], input[type=radio] {
   display: inline;
 }
 
-#account-register ul.breadcrumb li a{
- text-decoration: none;
+#account-register ul.breadcrumb li a {
+  text-decoration: none;
 }
 
 #my-legend {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 20px;
+}
+.my-alert {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  text-align: center;
+}
+a:hover,
+.logout:hover {
+  text-decoration: none;
+  color: black;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+.sticky-wrapper {
+  position: relative;
+}
+
+.sticky .sticky-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: white;
 }

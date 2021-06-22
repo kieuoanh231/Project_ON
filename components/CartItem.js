@@ -1,27 +1,24 @@
 import Link from "next/link";
 import { decrease, increase } from "../store/Actions";
-
 const CartItem = ({ item, dispatch, cart }) => {
+  
   return (
     <tr>
       <td className="text-center">
-        {" "}
-        <a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=product/product&amp;product_id=36">
+        <Link href={`product/${item._id}`} passHref={true}>
           <img
-            src="https://opencart.mahardhi.com/MT04/noriva/02/image/cache/catalog/products/8-80x80.jpg"
-            alt=" Waistcoat Jacket"
-            title=" Waistcoat Jacket"
-            className="img-thumbnail"
+          style={{height:"80px",
+              border:"none",cursor:"pointer"}}
+            src={item.images[0].url}
+            alt={item.title}
+            title={item.title}
           />
-        </a>{" "}
+        </Link>
       </td>
       <td className="text-left">
-        <a href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=product/product&amp;product_id=36">
-          {" "}
-          Waistcoat Jacket
-        </a>{" "}
+        <Link href={`product/${item._id}`}>{item.title}</Link>
       </td>
-      <td className="text-left">Product 9</td>
+      <td className="text-left">{item._id}</td>
       <td className="text-left">
         <div
           className="cart_input_block input-group btn-block"
@@ -29,26 +26,35 @@ const CartItem = ({ item, dispatch, cart }) => {
         >
           <div className="product-btn-quantity">
             <div className="minus-plus">
-              <button className="minus">
+              <button className="minus" onClick={ () => dispatch(decrease(cart, item._id)) } 
+                disabled={item.quantity === 1 ? true : false}>
                 <i aria-hidden className="fa fa-minus"></i>
               </button>
               <input
                 type="text"
                 name="quantity"
-                defaultValue="1"
+                readOnly
+                value={item.quantity}
                 size="2"
-                id="input-quantity"
-                className="form-control"
+                className="form-control input-quantity"
               />
-              <button className="plus">
+              <button className="plus"   onClick={ () => dispatch(increase(cart, item._id)) }
+                disabled={item.quantity === item.inStock ? true : false}>
                 <i aria-hidden className="fa fa-plus"></i>
+              </button>
+
+              <button className="delete"  data-toggle="modal" data-target="#myModal"  onClick={() => dispatch({
+                    type: 'ADD_MODAL',
+                    payload: [{ data: cart, id: item._id, title: item.title, type: 'ADD_CART' }]
+                })}>
+                <i aria-hidden className="fa fa-times-circle"></i>
               </button>
             </div>
           </div>
         </div>
       </td>
-      <td className="text-right">$110.00</td>
-      <td className="text-right">$220.00</td>
+      <td className="text-right">${item.price}</td>
+      <td className="text-right">${item.price * item.quantity}</td>
     </tr>
   );
 };

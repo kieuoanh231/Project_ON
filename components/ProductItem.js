@@ -4,16 +4,14 @@ import { addToCart } from "../store/Actions";
 import { DataContext } from "../store/GlobalState";
 const Product = ({ product }) => {
   const {state, dispatch} = useContext(DataContext)
-  
-  // const { auth } = state
-  console.log(state)
+  const {cart} =state
   return (
-    <div className="single-column col-3">
+    <div className="single-column col-md-3">
       <div className="product-layout">
         <div className="product-thumb transition">
           <div className="image">
             <Link href={`/product/${product._id}`}>
-              <div>
+              <div style={{cursor:"pointer"}}>
                 <img
                   src={product.images[0].url}
                   alt={product.title}

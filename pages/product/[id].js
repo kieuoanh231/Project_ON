@@ -1,14 +1,17 @@
-import Product from "../../components/ProductItem";
 import { getData } from "../../utils/fetchData";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import SliderVertical from "../../components/SliderVertical";
 import dynamic from "next/dynamic"
 import Slider from "../../components/Slider";
-
+import { DataContext } from "../../store/GlobalState";
+import { addToCart } from "../../store/Actions";
 const Detail = (props) => {
 
   const [product] = useState(props.product)
+
+  const {state, dispatch} = useContext(DataContext)
+  const {cart} = state
   
   return (
     <div id="product-page" className="container">
@@ -34,7 +37,6 @@ const Detail = (props) => {
                     className="slick-carousel clearfix"
                   >
                    <SliderVertical images={product.images}></SliderVertical>
-                  
                   </div>
                 </div>
                 <div className="pro-image">
@@ -58,22 +60,13 @@ const Detail = (props) => {
               <h1 className="">{product.title}</h1>
 
               <ul className="list-unstyled">
-                {/* <li>
-                  <span className="disc">Category:</span>{" "}
-                  <a
-                    className="disc1"
-                    href=""
-                  >
-                    {product.category}
-                  </a>
-                </li> */}
                 <li>
                   <span className="disc">Product Code:</span>
                   <span className="disc1"> {product._id}</span>
                 </li>
                 <li>
                   <span className="disc">Availability:</span>
-                  <span className="disc1"> In Stock</span>
+                  <span className="disc1"> {product.inStock}</span>
                 </li>
               </ul>
               <ul className="list-unstyled">
@@ -84,27 +77,6 @@ const Detail = (props) => {
               </ul>
               <div id="product" className="product-options">
                 <div className="form-group">
-                  <label className="control-label qty" htmlFor="input-quantity">
-                    Qty
-                  </label>
-                  <div className="product-btn-quantity">
-                    <div className="minus-plus">
-                      <button className="minus">
-                        <i aria-hidden className="fa fa-minus"></i>
-                      </button>
-                      <input
-                        type="text"
-                        name="quantity"
-                        defaultValue="1"
-                        size="2"
-                        id="input-quantity"
-                        className="form-control"
-                      />
-                      <button className="plus">
-                        <i aria-hidden className="fa fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
 
                   <div className="btn-group">
                     <button
@@ -112,7 +84,7 @@ const Detail = (props) => {
                       id="button-cart"
                       data-loading-text="Loading..."
                       className="btn btn-primary btn-lg btn-block"
-                    >
+                      onClick= {()=>dispatch(addToCart(product,cart)) }>
                       Add to Cart
                     </button>
                   </div>
@@ -149,7 +121,6 @@ const Detail = (props) => {
                   className="box-product  product-carousel  clearfix"
                   data-items="4"
                 >
-                  {/* <Product /> */}
                 </div>
               </div>
             </div>

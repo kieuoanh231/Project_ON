@@ -6,7 +6,12 @@ import { useState } from "react";
 import Head from "next/head";
 
 const Home = (props) => {
-  const [products, setProducts] = useState(props.products);
+  const [products] = useState(props.products);
+  const [ limit, setLimit] = useState(2); 
+  function handleClick() {
+    setLimit(prevLimit => prevLimit + 2) 
+  }
+  
   return (
     <>
       <Head>
@@ -21,7 +26,7 @@ const Home = (props) => {
             {products.length === 0 ? (
               <h2>No product</h2>
             ) : (
-              products.map((product) => (
+              products.slice(0, limit).map((product,i) => (
                 <ProductItem key={product._id} product={product} />
               ))
             )}
@@ -29,9 +34,10 @@ const Home = (props) => {
           </div>
         </div>
         <div className="load-more">
-          <button type="submit" className="btn btn-primary">
+          {limit<products.length &&<div onClick={handleClick} className="btn btn-primary">
             Load more
-          </button>
+          </div>}
+        
         </div>
       </div>
     </>

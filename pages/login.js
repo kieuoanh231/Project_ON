@@ -1,23 +1,12 @@
+import Head from "next/head";
+import Breadcrumb from "../components/Breadcrumb";
 import SignIn from "../components/Login";
 const Login = () => {
   return (
     <>
+    <Head><title>Login</title></Head>
       <div id="account-login" className="container">
-        <ul className="breadcrumb">
-          <li>
-            <a href="/">
-              Home / 
-            </a>
-          </li>
-          <li>
-            <a href="/"> Account / 
-            </a>
-          </li>
-          <li>
-            <a href="/signin"> Login
-            </a>
-          </li>
-        </ul>
+        <Breadcrumb></Breadcrumb>
         <div className="row">
           <aside id="column-left" className="col-sm-3 hidden-xs">
             <div className="account-content">
@@ -27,7 +16,7 @@ const Login = () => {
                   <ul className="list-unstyled">
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/login"
+                        href=""
                         className="list-group-item"
                       >
                         Login
@@ -35,7 +24,7 @@ const Login = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register"
+                        href=""
                         className="list-group-item"
                       >
                         Register
@@ -43,7 +32,7 @@ const Login = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/forgotten"
+                        href=""
                         className="list-group-item"
                       >
                         Forgotten Password
@@ -51,7 +40,7 @@ const Login = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/account"
+                        href=""
                         className="list-group-item"
                       >
                         My Account
@@ -59,7 +48,7 @@ const Login = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/address"
+                        href=""
                         className="list-group-item"
                       >
                         Address Book
@@ -67,7 +56,7 @@ const Login = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/wishlist"
+                        href=""
                         className="list-group-item"
                       >
                         Wish List
@@ -75,7 +64,7 @@ const Login = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/order"
+                        href=""
                         className="list-group-item"
                       >
                         Order History
@@ -83,7 +72,7 @@ const Login = () => {
                     </li>
                     <li>
                       <a
-                        href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/download"
+                        href=""
                         className="list-group-item"
                       >
                         Downloads
@@ -109,7 +98,7 @@ const Login = () => {
                     orders you have previously made.
                   </p>
                   <a
-                    href="https://opencart.mahardhi.com/MT04/noriva/02/index.php?route=account/register"
+                    href=""
                     className="btn btn-primary"
                   >
                     Continue

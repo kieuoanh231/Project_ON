@@ -1,36 +1,49 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { DataContext } from "../store/GlobalState";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
-
 function NavBar() {
-  const {state, dispatch} = useContext(DataContext);
-  const { auth } = state;
+  const { state, dispatch } = useContext(DataContext);
+  const { cart, auth } = state;
   const router = useRouter();
+  const [isSticky, setSticky] = useState(false);
+  const ref = useRef(null);
 
+  const handleScroll = () => {
+    if (ref.current) {
+      setSticky(ref.current.getBoundingClientRect().top <= 0); // get bounding of element
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', () => handleScroll);
+    };
+  }, []);
+  
   const handleLogout = () => {
     Cookies.remove("refreshtoken", { path: "api/auth/accessToken" });
     localStorage.removeItem("firstLogin");
     dispatch({ type: "AUTH", payload: {} });
     console.log("Logged out!");
     router.push("/login");
-    // dispatch({type:'NOTIFY',payload:{msg:"Logged out!"}})
   };
 
   const loggedRouter = () => {
     return (
       <div id="header_ac" className="dropdown">
         <span>
-          <Link href="#" title="My Account" data-toggle="dropdown">
+          <Link href="/" title="My Account" data-toggle="dropdown">
             <i className="fas fa-user" aria-hidden="true"></i>
           </Link>
           <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
             <li>
-              <Link href="#">Profile</Link>
+              <Link href="/">Profile</Link>
             </li>
             <li>
-              <div onClick={handleLogout}>Logout</div>
+              <div className="logout" onClick={handleLogout}>Logout</div>
             </li>
           </ul>
         </span>
@@ -42,7 +55,7 @@ function NavBar() {
     <header>
       <div className="container">
         <div className="header-top">
-          <div className="header-left hidden-sm hidden-xs">
+          <div className="header-left d-none d-sm-block">
             <div className="contact">
               <a>
                 <i className="fas fa-phone-alt" aria-hidden="true"></i>
@@ -56,8 +69,9 @@ function NavBar() {
 
           <div className="header-center">
             <div id="logo">
-              <Link href="/">
+              <Link href="/" passHref={true}>
                 <img
+                style={{cursor:"pointer"}}
                   src="/images/logo.png"
                   title="Your Store"
                   alt="Your Store"
@@ -77,7 +91,7 @@ function NavBar() {
             {Object.keys(auth).length === 0 ? (
               <div id="header_ac" className="dropdown">
                 <span>
-                  <Link href="#" title="My Account" data-toggle="dropdown">
+                  <Link href="/" title="My Account" data-toggle="dropdown">
                     <i className="fas fa-user" aria-hidden="true"></i>
                   </Link>
                   <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
@@ -93,41 +107,20 @@ function NavBar() {
             ) : (
               loggedRouter()
             )}
-
-            {/* <div id="header_ac" className="dropdown">
-              <span>
-                <Link href="#" title="My Account" data-toggle="dropdown">
-                  <i className="fas fa-user" aria-hidden="true"></i>
-                </Link>
-                <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                  <li>
-                    <Link href="/register">Register</Link>
-                  </li>
-                  <li>
-                    <Link href="/login">Login</Link>
-                  </li>
-                </ul>
-              </span>
-            </div> */}
-
-            <div id="header_cart">
-              <span>
-                <Link href="/cart" title="Cart" data-toggle="dropdown">
+            <Link href="/cart" passHref={true}>
+              <div id="header_cart">
+                <span>
                   <>
                     <i
                       className="cart-icon fas fa-shopping-cart"
                       aria-hidden="true"
                     ></i>
-                    <span className="cart-length">2</span>
+                    <span className="cart-length">{cart.length}</span>
+
                   </>
-                </Link>
-                {/* <ul className="dropdown-menu dropdown-menu-right account-link-toggle">
-                  <li className="text-center product-cart-empty">
-                    Your shopping cart is empty!
-                  </li>
-                </ul> */}
-              </span>
-            </div>
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -153,35 +146,11 @@ function NavBar() {
           </span>
         </div>
 
-        {/* <script type="text/javascript">
-                $('#mahardhiSearch .btn-search button').bind('click', function() {
-                    url = 'index.php?route=product/search';
-
-                    var search = $('#mahardhiSearch input[name=\'search\']').prop('defaultValue');
-                    if (search) {
-                        url += '&search=' + encodeURIComponent(search);
-                    }
-
-                    var category_id = $('#mahardhiSearch select[name=\'category_id\']').prop('defaultValue');
-                    if (category_id > 0) {
-                        url += '&category_id=' + encodeURIComponent(category_id);
-                        // url += '&sub_category=true';
-                        // url += '&description=true';
-                    }
-
-                    location = url;
-                });
-
-                $('#mahardhiSearch input[name=\'search\']').bind('keydown', function(e) {
-                    if (e.keyCode == 13) {
-                        $('#mahardhiSearch .btn-search button').trigger('click');
-                    }
-                });
-            </script> */}
         <i className="fas fa-times icon-close" aria-hidden="true"></i>
       </div>
       <hr />
-      <div className="header-bottom">
+      <div className={`header-bottom d-none d-sm-block sticky-wrapper${isSticky ? ' sticky' : ''}`} ref={ref}>
+      <div className={`sticky-inner`} >
         <div className="container">
           <nav className="navbar navbar-expand-sm">
             <div className="mx-auto container-fluid">
@@ -189,7 +158,7 @@ function NavBar() {
                 className="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown"
+                data-bs-target="/navbarNavDropdown"
                 aria-controls="navbarNavDropdown"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
@@ -202,27 +171,27 @@ function NavBar() {
               >
                 <ul className="navbar-nav mx-auto">
                   <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">
+                    <a className="nav-link active" aria-current="page" href="/">
                       Home
                     </a>
                   </li>
                   <li className="nav-item mx-1">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/">
                       Jacket
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/">
                       Unisex Jacket
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/">
                       Blogs
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/">
                       Blogs
                     </a>
                   </li>
@@ -232,7 +201,8 @@ function NavBar() {
           </nav>
         </div>
       </div>
-    </header>
+      </div>
+   </header>
   );
 }
 

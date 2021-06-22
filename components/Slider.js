@@ -1,13 +1,11 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import Link from "next/link";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [pause, setPause] = useState(false);
-  const timer = React.useRef();
-
+  const timer = useRef();
   const [sliderRef, slider] = useKeenSlider({
     initial: 0,
     loop: true,
@@ -22,16 +20,7 @@ function Slider() {
       setCurrentSlide(s.details().relativeSlide);
     },
   });
-
-  useEffect(() => {
-    sliderRef.current.addEventListener("mouseover", () => {
-      setPause(true);
-    });
-    sliderRef.current.addEventListener("mouseout", () => {
-      setPause(false);
-    });
-  }, [sliderRef]);
-
+  //auto
   useEffect(() => {
     timer.current = setInterval(() => {
       if (!pause && slider) {
