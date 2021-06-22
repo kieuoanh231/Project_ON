@@ -33,7 +33,7 @@ function Login() {
       setMes("Login success!");
       dispatch({
         type: "AUTH",
-        payload: { toke: res.accessToken, user: res.user },
+        payload: { token: res.accessToken, user: res.user },
       });
       Cookie.set("refreshtoken", res.refreshToken, {
         path: "api/auth/accessToken",
