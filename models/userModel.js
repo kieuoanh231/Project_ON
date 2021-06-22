@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: 'https://firebasestorage.googleapis.com/v0/b/next-app-12820.appspot.com/o/user%2Fcbd0b1a6345a44b58dda0f6a355eb39ce4e8a56a.png?alt=media&token=96beadb5-17fb-4b05-8c0f-4e4ae640d18a'
+        default: ''
     }
 }, {
     timestamps: true
